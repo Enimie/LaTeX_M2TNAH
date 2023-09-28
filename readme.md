@@ -84,7 +84,7 @@ OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-
 
 ### Forums francophones
 
-[Devellopez.com](https://www.developpez.net/forums/f149/autres-langages/autres-langages/latex/)
+[Developpez.com](https://www.developpez.net/forums/f149/autres-langages/autres-langages/latex/)
 
 [TeXnique](https://texnique.fr/osqa/)
 
