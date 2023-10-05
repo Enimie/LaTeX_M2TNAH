@@ -74,6 +74,8 @@ Date de rendu: **XXX**
 
 ## Quelques *packages* 
 
+Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](https://www.ctan.org/) (The Comprehensive TeX Archive Network). Je vous propose ici une liste (non-exhaustive)  de quelques packages qui pourraient vous servir.
+
 |Package|Usage|
 |-- |-- |
 |`biblatex`|Bibliographie|
@@ -91,13 +93,18 @@ Date de rendu: **XXX**
 |`hyperref`|Hyperliens. (Appel du package à mettre à la fin; amélioré si utilisé avec `bookmark`)|
 |`ifthen`|Commande pour écrire une instruction if then else|
 |`indextools`|Faire un ou plusieurs index (fork de `imakeidx`)|
+|`lscape`|Pour inclure des pages en format paysage|
+|`pdflscape`|Inclure des pdf en format paysage|
 |`perpage`|Faire redémarrer un compteur à chaque page|
+|`minted`|Colorer des citations de code informatique (attention, nécessite une compilation en ligne de commande avec une option: voir le manuel, section 3.1)|
 |`multicol`|Mettre un texte sur plusieurs colonnes|
+|`pict2e`|Tracer des dessins|
 |`placeins`|Mettre une barrière aux flottants|
 |`reledmac`|Éditions critiques|
 |`reledpar`|Vis-à-vis (avec `reledmac`)|
 |`setspace`|Modifier l'interligne|
 |`tikz`|Faire des schémas|
+|`wrapfig`|Mettre du texte autour de flottants|
 |`xargs`|Créer commandes et environnements avec plusieurs arguments optionnels|
 |`xcolor`|Mettre de la couleur|
 |`xspace`|Insérer un espace sauf avant certains signes de ponctuation|
