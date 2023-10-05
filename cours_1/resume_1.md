@@ -43,6 +43,7 @@ corps du texte
 - deux retours à la ligne ou plus &rarr; nouveau paragraphe
 - `--` &rarr; demi-cadratin, `---` &rarr; cadratin
 - gestion des espaces automatique avant ponctuation
+- pour taper des points de suspensions: `\dots`
 - tout ce qui suit le caractère `%` est ignoré (commentaire)
 - attention, certains caractères sont utilisés par LaTeX: `\ ~ ^ { } % _ & $ #`. Pour insérer ces caractères dans un texte, il faut taper: `\textbackslash  \textasciitilde \textasciicircum \{ \} \% \_ \& \$ \#`
 
