@@ -71,6 +71,41 @@ Tapez dans un terminal la commande suivante: `sudo apt install texstudio` puis e
 Les consignes seront données ultérieurement
 Date de rendu: **XXX**
 
+
+## Quelques *packages* 
+
+|Package|Usage|
+|-- |-- |
+|`biblatex`|Bibliographie|
+|`biblatex-manuscripts-philology`|Décrire dans une base bibliographique des manuscripts|
+|`biblatex-multiple-dm`|Pouvoir utiliser plusieurs modèles de données avec `biblatex`|
+|`bibleref-french`|Références bibliques (français)|
+|`csquotes`|Gérer les guillemets|
+|`endnote`|Créer des notes de fin|
+|`enumitem`|Modifier l'apparence des listes|
+|`etoolbox`|Commandes LaTeX remplaçant des commandes TeX (difficulté +++ ; pour ceux qui aiment programmer!)|
+|`fancyhdr`[Personnaliser la mise en page|Améliorer l'environnement `tabular`: indiquer par exemple la taille des colonnes`|
+|`framed`|Encadrer, surligner,... du texte|
+|`geometry`|Modifier la géométrie de la page (marges)|
+|`graphicx`|Insérer des images, manipuler des boites (rotation,...)|
+|`hyperref`|Hyperliens. (Appel du package à mettre à la fin; amélioré si utilisé avec `bookmark`)|
+|`ifthen`|Commande pour écrire une instruction if then else|
+|`indextools`|Faire un ou plusieurs index (fork de `imakeidx`)|
+|`perpage`|Faire redémarrer un compteur à chaque page|
+|`multicol`|Mettre un texte sur plusieurs colonnes|
+|`placeins`|Mettre une barrière aux flottants|
+|`reledmac`|Éditions critiques|
+|`reledpar`|Vis-à-vis (avec `reledmac`)|
+|`setspace`|Modifier l'interligne|
+|`tikz`|Faire des schémas|
+|`xargs`|Créer commandes et environnements avec plusieurs arguments optionnels|
+|`xcolor`|Mettre de la couleur|
+|`xspace`|Insérer un espace sauf avant certains signes de ponctuation|
+
+
+
+
+
 ## (Très courte) bibliographie
 
 ROUQUETTE, Maïeul, [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
@@ -78,6 +113,7 @@ ROUQUETTE, Maïeul, [XeLaTeX appliqué aux sciences humaines](https://halshs.arc
 LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander](https://archives.framabook.org/docs/latex/framabook5_latex_v1_art-libre.pdf)
 
 OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-archive/info/lshort/french/lshort-fr.pdf)
+
 
 
 ## Trouver de l'aide
@@ -93,3 +129,6 @@ OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-
 [Latex Community](https://latex.org/forum/)
 
 [StackExchange](https://tex.stackexchange.com/search?q=)
+
+
+
