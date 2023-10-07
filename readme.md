@@ -104,7 +104,8 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`reledpar`|Vis-à-vis (avec `reledmac`)|
 |`setspace`|Modifier l'interligne|
 |`tikz`|Faire des schémas|
-|`wrapfig`|Mettre du texte autour de flottants|
+|`verse`|Citer des vers|
+`wrapfig`|Mettre du texte autour de flottants|
 |`xargs`|Créer commandes et environnements avec plusieurs arguments optionnels|
 |`xcolor`|Mettre de la couleur|
 |`xspace`|Insérer un espace sauf avant certains signes de ponctuation|
