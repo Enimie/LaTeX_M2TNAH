@@ -14,7 +14,7 @@
 
 ### Listes
 
-- Au sein des environnements de liste, chaque nouvelle entrée est appelé par la commande `\item`
+- Au sein des environnements de liste, chaque nouvelle entrée est appelée par la commande `\item`
 
 |Environnement|Effet|
 |-- |-- |
@@ -42,7 +42,7 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 |`\textelp{}` (requiert le package `csquotes`)|Indiquer une citation tronquée. Si l'argument est vide: met simplement des points de suspension|
 |`\textins{#1}` (requiert le package `csquotes`)|Indiquer une modification de la citation|
 |`\url{#1}`|Créer un lien vers une URL|
-|`verse` (recquiert le package `verse`|Pour citer des vers. Voir le manuel|
+|`verse` (requiert le package `verse`|Pour citer des vers. Voir le manuel|
 
 
 ## Mettre en forme: quelques commandes et environnements
@@ -68,7 +68,7 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 
 ### Commandes "à bascule" pour changer  la taille des caractères
 
-- Si l'on veut modifier sur une portion de texte donnée la taille des caractères, il faut utiliser une commande à bascule. Le comportement de ce type de commandes est différent: elles ne prennent pas d'argument mais sont insérées entre accolades; le texte dont la taille change est entre les accolades, après la commande.
+- Si l'on veut modifier sur une portion de texte donnée la taille des caractères, il faut utiliser une commande à bascule. Le comportement de ce type de commandes est différent: elles ne prennent pas d'argument, mais sont insérées entre accolades; le texte dont la taille change est entre les accolades, après la commande.
 - Exemple: {\large un texte plus gros}
 - La taille obtenue est relative: elle dépend de la taille définie lors de l’appel de classe.
 
@@ -112,22 +112,22 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 
 ### Encadrer du texte en le mettant dans des boites
 
-|Commande/environnemt|Effet|
+|Commande/environnement|Effet|
 |-- |--|
-|`\fcolorbox{#1}{#2}{#3}` (recquiert le package `xcolor`)|Mettre du texte (`#3`) dans une boite de la couleur choisie (`#1` pour le cadre, `#2` pour le fond)|
+|`\fcolorbox{#1}{#2}{#3}` (requiert le package `xcolor`)|Mettre du texte (`#3`) dans une boite de la couleur choisie (`#1` pour le cadre, `#2` pour le fond)|
 |`\fbox{#1}` (ou `\framebox{#1}`|Texte court encadré (sans changement de ligne/de paragraphe)|
-|`framed`(recquiert le packae `framed`)|Encadre des textes qui peuvent courir sur plusieurs lignes/paragraphes|
+|`framed`(requiert le packae `framed`)|Encadre des textes qui peuvent courir sur plusieurs lignes/paragraphes|
 
 Il existe aussi le package `fancybox` pour créer des boites encadrées
 
 Sur la notion de boites dans LaTeX, voir LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander](https://archives.framabook.org/docs/latex/framabook5_latex_v1_art-libre.pdf), p. 73 *sq*.
 
-## Créer ses commandes et environnements
+## Créer ses commandes et environnements (1)
 
 ### Syntaxe pour créer une commande
 
 -  `\newcommand{#1}[#2]{#3}`. `#1`= nom de la commande; `#2`=nombre d'arguments de la nouvelle commande; `#3`= code de la nouvelle commande
-- Les commandes doivent être crées dans le préambule.
+- Les commandes doivent être créées dans le préambule.
 
 ### Syntaxe pour créer un environnement
 
