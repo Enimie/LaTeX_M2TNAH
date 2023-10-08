@@ -93,6 +93,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`hyperref`|Hyperliens. (Appel du package à mettre à la fin; amélioré si utilisé avec `bookmark`)|
 |`ifthen`|Commande pour écrire une instruction if then else|
 |`indextools`|Faire un ou plusieurs index (fork de `imakeidx`)|
+|`lettrines`|Insérer des lettrines|
 |`lscape`|Pour inclure des pages en format paysage|
 |`pdflscape`|Inclure des pdf en format paysage|
 |`perpage`|Faire redémarrer un compteur à chaque page|
