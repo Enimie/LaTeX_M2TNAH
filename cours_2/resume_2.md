@@ -129,10 +129,17 @@ Sur la notion de boites dans LaTeX, voir LOZANO, Vincent, [Tout ce que vous avez
 -  `\newcommand{#1}[#2]{#3}`. `#1`= nom de la commande; `#2`=nombre d'arguments de la nouvelle commande; `#3`= code de la nouvelle commande
 - Les commandes doivent être créées dans le préambule.
 
+- Syntaxe pour créer une commande avec argument optionel, grâce au package `xargs`:
+
+- `\newcommandx{#1}[#2][#3]{#4}` `#1`=nom de la commande; `#2`= nombre d'arguments; `#3`=liste des arguments optionnels (liste de numéros indiquant la position des arguments optionnels dans la commande). Une  valeur par défaut peut être attribuée aux arguments optionnels, consulter le manuel de `xarg`; `#4`= le code
+
+- Tester si un argument est vide grâce au packet `etoolbox`: utiliser la commande `\ifstrempty{#1}{#2}{#3}`. `#1`=la chaine de caractères que l'on va tester (ça peut être un argument de notre ouvelle commande, par exemple `#1`); `#2`=ce qui se passe si la chaine est vide; `#3`=ce qui se passe sinon.
+
 ### Syntaxe pour créer un environnement
 
 -`\newenvironment{#1}[#2]{#3}{#4}`. `#1`= nom de l'environnement; `#2`=nombre d'arguments du nouvel environnement; `#3`= code appelé à l'ouverture de l'environnement; `#4` = code appelé à la fermeture de l'environnement
 
+- Pour créer un environnement avec arguments optionnels, utilisez le package `xargs`
 
 
 
