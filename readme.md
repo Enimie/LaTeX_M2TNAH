@@ -117,6 +117,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 ## Quelques messages d'erreurs courants
 
 - `!Emergency stop` suivi de `(job aborted, no legal \end found`: il manque `\end{document}`
+- `! LaTeX Error: Missing \begin{document}`: il y a du texte dans le préambule (en dehors des définitions et des appels de package)
 - `!Undefined control sequence`: la commande n'existe pas - son nom est mal tapé, ou le package qui la définit n'a pas été chargé
 - `LaTeX Error: \begin{<nom>} on input line 8 ended by \end{document}`: l'environnement n'a pas été fermé
 - `! LaTeX Error: \begin{<nom1>} on input line 9 ended by \end{<nom2>}`: deux environnements se superposent, ou un environnement est fermé par la balise d'un autre environnement
