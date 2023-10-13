@@ -114,6 +114,21 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 
 
 
+## Quelques messages d'erreurs courants
+
+- `!Emergency stop` suivi de `(job aborted, no legal \end found`: il manque `\end{document}`
+- `!Undefined control sequence`: la commande n'existe pas - son nom est mal tapé, ou le package qui la définit n'a pas été chargé
+- `LaTeX Error: \begin{<nom>} on input line 8 ended by \end{document}`: l'environnement n'a pas été fermé
+- `! LaTeX Error: \begin{<nom1>} on input line 9 ended by \end{<nom2>}`: deux environnements se superposent, ou un environnement est fermé par la balise d'un autre environnement
+- `! File ended while scanning use of \<nom de la commande>`: on a oublié l'accolade fermant la commande .
+- `! LaTeX Error: Command \<nom> already defined` : on a essayé de définir une nouvelle commande ou un nouvel environnement en lui donnant le nom d'une commande ou d'un environnement existants.
+- `! File ended while scanning use of \@argdef`: une accolade n'est pas fermée dans la définition d'une nouvelle commande
+- `! File ended while scanning use of \@newenv`:  une accolade n'est pas fermée dans la définition d'un nouvel environnement
+- `! Missing number, treated as zero`: on a appelé un argument dans la définition d'une nouvelle commande ou d'un nouvel environnement, sans indiquer en option qu'il y aurait un argument
+- `! Illegal parameter number in definition of \<nom>`: on appelle, dans la définition d'une nouvelle commande ou d'un nouvel environnement, un argument d'un nombre plus élevé que le nombre d'argument indiqué en option
+- ` Missing $ inserted`: on a tapé une commande mathématique sans la mettre entre les symboles `$`.
+ 
+
 
 
 ## (Très courte) bibliographie
