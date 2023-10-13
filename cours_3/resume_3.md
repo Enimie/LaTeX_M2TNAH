@@ -22,151 +22,137 @@
 |b|positionne le flottant en bas d'une page|
 |p|positionne le flottant sur une page dédiée aux flottants|
 
-- **nb** Pour éviter que le flottant n'aille torp loin de l'endroit où on l'a appelé, utiliser la commande `\FloatBarrier` du package `placeins`:  tous les floants appelés avant la commande sont placés avant celle-ci.
+- **nb** Pour éviter que le flottant n'aille trop loin de l'endroit où on l'a appelé, utiliser la commande `\FloatBarrier` du package `placeins`:  tous les floants appelés avant la commande sont placés avant celle-ci.
 - Le  package `wrapfig` permet de mettre du texte autour du flottant (voir le manuel)
 
-5.5. -> 
+
 
 
 ### Insérer une image 
 
-- Pour insérer une image, il faut utiliser la commande  `\includegraphics[⟨options⟩]{⟨chemin de l’image⟩}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au dessus de 1: l'image est aggrandie; en-dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
+- Pour insérer une image, il faut utiliser la commande  `\includegraphics[⟨options⟩]{⟨chemin de l’image⟩}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
 - L'environnement `landscape` du package  `lscape` permet de mettre l'image (ou tout autre élément: tableau, texte) en format paysage.
 
 ### Insérer tableau
 
-- Utiliser l'assistant de Texstudio, très efficace.
-- Environnement `tabular`
+- Environnement `tabular` Utiliser l'assistant de Texstudio, très efficace. Syntaxe:
+	- l'argument de tabular permet d'indiquer le nombre de colonnes et la position du texte (centré: `c`, aligné à gauche: `l`, aligné à droite `r`). Le signe `|` indique que les colonnes doivent être séparées par une bande verticale
+	- `hline` permet de tracer des traits horizontaux entre les lignes
+	- Au sein d'une ligne: on indique un changement de colonne par le signe `&`, et la fin de la ligne par  `\\`
+	- Il est possible également d'indiquer la taille des colonnes. Voir par exemple le tutoriel ici:  
+[tabular](https://lataix-sebastien.developpez.com/tutoriels/latex/les-tableaux-sous-latex/), ou utiliser simplement l'assistant de Texstudio.
 
-- assez pénible en latex. Mais texstudio permet de le faire très facilement
-1. faire un tableau 3x3 en fusionnant 1ere ligne colonnes 1/2
-2. Explication fonctionnement d'un tableau
-3. Pour choisir taille des col, arg à modifier. Nécessite le package array
-- je ne dev pas, l'assistant marche bien. Je mets un lien vers un tuto.
-bon tuto [ici](https://lataix-sebastien.developpez.com/tutoriels/latex/les-tableaux-sous-latex/) 
 
-- **RQ** Pour faire tableau sur plusieurs page, ou qui peuvent prendre footnote: longtable 
-**RQ**: faire des faux tableau (aligner du texte en colonne)/ Parfois correspond mieux à ce qu'on veut faire. Renvoi à l'explication [tabbing](https://latexref.xyz/fr/tabbing.html)
+- **nb** Il existe un package `longtable` permettant de faire des tableaux allant sur plusieurs pages et pouvant recevoir des notes de bas de page (`\footnote`).
+- Le package `tabbing` permet d'aligner du texte en colonne sans réellement faire de tableau. Il est parfois plus adapté que l'environnement `tabular` ; vous trouverez un tutoriel ici:[tabbing](https://latexref.xyz/fr/tabbing.html)
 
 
 
-### exo3_1 C.  premiers graphiques avec tikz: 
+### Faire un graphique avec TikZ 
 
-- tikz: package graphisme. Assez compliqué de s'en servir. Livre TiKz pour l'impatient, ref ds la biblio
-- on va voir: pour faire stemma/arbre généalogique. Ici j'ai déjà mis, enevez commentaire au fur et à mesure. Je reprend ex de Maieul rouquette
-- car tikz a une syntaxe spécifique
-- environnement `tikzpicture` . Peut avoir un argument pour passer option (épaisseur des traits par ex; cf tikz pour imptient et manuel)
-- on place un noeud, `\node{1}`/ = un bloc de texte (peut être customizé aussi)
-- associer un noeud à ce noeud: child
-- nbre d'accolades et imbrication important
-- Qd stemma plus compliqué: on peut avoir besoin de positionner sur une grille. Renvoi à article de Maieul sur son site: [stemma](https://geekographie.maieul.net/89)
-- Outils pour simplifier: utiliser géogébra puis exporter en tex; utiliser application pour faire des arbres en latex. Je mets liens sur le readme
+- Utiliser l'environnement `tikzpicture` du package `tikz`.
+- `tikz` a une syntaxe spécifique. Notamment, chaque commande doit être terminée par un `;`.
+- Tutoriels très clairs pour utiliser `TikZ`: [Tutoriels tikz Maïeul](https://geekographie.maieul.net/spip.php?page=recherche&recherche=tikz). Vous pouvez aussi vous référer à l'ouvrage [TikZ pour l'impatient](http://math.et.info.free.fr/TikZ/bdd/TikZ-Impatient.pdf) (p.21 pour une explication sur geogebra)
+- un site pour créer rapidement des arbres avec TikZ: [arbres](http://math.et.info.free.fr/TikZ/Arbres.html)
 
-### pgfplots
+### Faire des  histogrammes avec TikZ et le package pgfplots 
 
-On peut aussi faire courbes, histogrammes, etc. Un certains nbre de packages concus pour simplifier utilisation de tikz. Ici on va parler de `pgfplots` (plot=graphique)
+- Un tutoriel ici: [pgfplots](http://lesfichesabebert.fr/TeX/tikz/Pgfplot.html). **Attention**, l'auteur donne à chaque fois également les commandes pour ceux qui utilisent `ConTeXt`: ne pas en tenir compte
+- Dans l'environnement `tikzpicture`, utiliser l'environnement  `axis` pour créer des abscisses et des ordonnées.
+- Dans l'environnement `axis`, la commande `\addplot coordinates {#1};` permet d'ajouter des points (en `#1`):
+	+ chaque point est indiqué entre parenthèses par : `abscisse-virgule-ordonnée`.
+	+ **Attention** pour les valeurs décimales, utiliser non une virgule mais un point (notation anglo-saxonne)
+- Il peut y avoir plusieurs commandes `addplots` à la suite.
+- Pour indiquer la légende: `\legend{#1}`. S'il y a plusieurs ensembles de données (plusieurs `\addplot`), il doit y avoir plusieurs éléments dans la légende, séparés par une virgule. Exemple: `\legend{légende pour le premier \addplot,légende pour le second \addplot}`
+- Pour faire un diagramme en barres verticales ou horizontales: passer à l'environnement `axis` l'option `ybar` et `xbar`; `ybar stacked` pour que les barres soient les unes sur les autres
+- l'option `xtick=data` permet de régler les "labels": de  ne faire apparaître sur la ligne des abscisses que les données utilisées.
+- Pour que les nombres supérieurs à 999 ne soient pas notés avec une virgule (notation anglo-saxonne), insérer dans le préambule la commande `\pgfplotsset{/pgf/number 	format/1000 sep=}`
 
+
+Pour des exemples, voir les exercices.
+
+- **nb** Pour faire un   diagramme camembert, utiliser le package `pgf-pie`.
+
+
+## Importer des données d'un fichier . csv pour obtenir tableaux et graphes avec TikZ, pgfplots et le package pgfplotstable
+
+- Pour des exemples, voir les exercices.
+
+### Étape préliminaire: stocker les données dans une variable
+
+
+-  `\pgfplotstableread[col sep=XX]{#1}{#2}`, où XX peut prendre comme valeur `comma` ou `tab` selon le fichier csv que l'on importe (s'il y a des virgules dans les données importées, utiliser `tab`);  `#1`=chemin du fichier (avec l'extension); `#2`=nom donné à une variable ainsi créée et qui va stocker les données du fichier. 
+- Exemple: `\pgfplotstableread[col sep=comma]{mon_fichier.csv}{\table}` 
+
+- Mettre dans le préambule `\pgfplotsset{/pgf/number format/read comma as period}` pour que les virgules dans les nombres décimaux  soient bien comprises comme telles (notation française *vs* notation anglo-saxonne)
+
+### Importer les données dans un tableau
+
+- `\pgfplotstabletypesetfile{#1}`: lit le contenu de la variable précédemment créée et indiquée en `#1` et le transforme en tableau. Exemple: `\pgfplotstabletypesetfile{\table}`
+-  Pour modifier apparence des tableaux: passer des arguments  optionnels à `\pgfplotstabletypesetfile`, ou régler l'apparence de tous les tableaux dans le préambule avec la commande `\pgfplotstableset`. Pour des exemples, voir les exercices et le manuel de `pgfplotstable` 
+
+- **Quand les données ne sont pas des données numérales mais des chaînes de caractères**:  passer   à `\pgfplotstabletypesetfile` l'option `string type`.
+
+
+
+### Importer les données dans un diagramme
+-  reprendre l'environnement `axis` au sein de  `tikzpicture`
+- avec la commande `\addplot`, à la place de `coordinates`, mettre: ` table[option]{#1}`, où `#1`=le nom de la variable où l'on a stocké les données. 
+- Pour indiquer à `pgfplotstable` quelles colonnes du fichier utiliser, indiquer en option:  `x=nom de la colonne, y=nom de la colonne`. 
+
+- **Quand les données ne sont pas des données numérales mais des chaînes de caractères**: 
+1. Passer comme option à `\addplot table`: `x expr=\coordindex` 
+2. Indiquer que les données (non numériques) d'une colonne doivent apparaître comme label sur la ligne des abscisses: passer comme option à `axis` :  `xticklabels from table={#1}{#2}`, où `#1`=le nom de la variable où l'on a stocké les données, et `#2`=le nom de la colonne utilisée.
+3. Pour faire tourner sur la ligne des abscisses les "labels" pour qu'ils apparaissent à la verticale, passer en option à `axis`:  `x tick label style={rotate=90}`
+
+
+
+
+
+## Les packages  `reledmac` et `reledpar` pour l'édition critique
+
+### reledmac
+
+1. Pour numéroter les  lignes:  
+```
+\beginnumbering  
+ \pstart
+Le texte à numéroter
+ \pend
+ \endnumbering
+``` 
  
-- type de graphique: stemma codicum; histogrammes diagrammes en baton; courbes; camembert; etc.
-- pour faire diagramme: on peut utiliser autre logiciel, faire image et importer avec includegraphics.
-- Mais: ne marche pas toujours bien; image perd en qualités; pas toujours vectorisée; des détails disparaissent; la typo change...
-	+ envirnnement tikzpicture, et dedan env `axis`. Compiler -> affiche coordonnées par défaut. Vont se modifier avec les coordonnés
-	+ axis peut prendre option, comme la taille, scale, xscale, yscale etc, faire apparaître la grille; Cf manuel.On en verra qq unes
-	+ ds axis, ajouter un ensemble de "points": `\addplot coordinates { };` 
-	+ on retrouve syntaxe de tikz
-	+ ds coordinnate: chaque points est indiqué entre parenthèse par : `abscisse-virgule-ordonnée`.
-	+ **Attention** chiffre avec virgule: virgule remplacé par point (systeme anglo-saxon)
+Pour configurer la numérotation, voir le manuel; idem pour la syntaxe des vers. Voir aussi le chapitre 20 de l'ouvrage   [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
 
--  Exemple: temps de travail hommes/femme
-	+ leur faire faire d'abord une, puis 2 lignes addplots
-	+ faire ajouter xlabel, ylabel
-	+ pb de format de la date: 
-	- mettre en barre: option ybar; rq: pas même apparence si on met ca en option de axis ou en option de chaque addplot. `ybar stacked`: sont l une sur l'autre
-	+ pb date: soit mettre en option `style={/pgf/number format/1000 sep=}`; soit :
-	+ `\pgfplotsset` ds preambule pour faire reglages pour tous: `\pgfplotsset{/pgf/number 	format/1000 sep=}`. Vous pouvez enlever le commentaire ligne 15
-	+ la seconde option: pour que les virgules ds les chiffres soient compris comme chiffre (à la française, pas à l'anglaise). Je vous conseille de garder ces réglages.
-	+ transformer en barre: option ybar; à mettre ds axis ou ds chaque addplots: pas meme apparence
-	+ ajouter légende `\legend{hommes,femmes}` au sein de exis: area legend
+2. Apparat critique: 
+- les "familiar notes":`\footnoteA{#1},\footnoteB{#1}`, etc (cinq niveaux, jusqu') `\footnoteE`
+- les "critical notes" (sans appel de note, mais avec, dans  la note, le numéro de ligne ou de vers et un lemme, c'est-à-dire le morceau de texte pour lequel on indique des variantes): :`\Afootnote{#1},\Bfootnote{#1}`, etc (cinq niveaux, jusqu') `\Efootnote`
+- les notes de fin (`\Aendnote{#1}`, etc, jusqu'à `\Eendnote`)
 
-- **RQ** un autre package pour faire diagramme camembert, `pgf-pie`; très simple d'usage, dc je renvoie au manuel.
+- Pour faire une note critique (avec lemme): `\edtext{#1}{#2}`, où `#1`= le mot qui va apparaître comme lemme, et `#2`= la "critical note".
 
-## Importer données pour obtenir tableaux et graphes
-- Bcp plus intéressant: importer données.
-- But: partir d'un fichier contenant données et les faire transformer automatiquement 
-- package pgfplotstable
+Pour des exemples, voir les exercices.
 
-1. avec le même fichier travail_domestique
-- importer des donnée: `\pgfplotstableread[col sep=comma]{travail_domestique_insee.csv}{\travail}`: on passe les données ds une variable qu'on créé: on lui donne le nom qu'on veut (pas nom d'une commande)
-- comme fichier csv: col séparée par virgule: on le lui indique
-- \pgfplotstabletypesetfile{\travail}: lit le contenu de travail et le transforme en tableau.
-- pour le faire en diagramme: on reprend même environnement tikz avec axis
-- à la place de coordinates, on met table[option]{\travail}. il faut indiquer à pgfplots quelles ligne choisir: en option, x=NOM de la colonne voulue; y=...].  **RQ**: si tableau avec seuleent 2 colonne, on met une seule ligne addplot...
-- option `[xtick=data]` permet de n'avoir en x que les données qui apparaissent, pas toutes les dates
+### reledpar 
 
-2. Avec le fichier classemnt_prenom. On commence par importer
--  on met axis, option ybar
--  \addplot table {\prenoms}; **pb**: les prénoms ne sont pas des nbre...
-- Donc ds option de addplot table: on indique `x expr=\coordindex`
-- **PB** 2: les prénoms n'apparaissent pas.  indiquer qu'en x, comme "label", on prend les donnée d'une certaine colonnes: `xticklabels from table={\prenoms}{Prénom}`; on met aussi ` xtick=data` pour que sélectionne chaque data comme xticks
-- dernier pb: mettre les prénoms ds e bon sens: ajouter option `x tick label style={rotate=90}`
--pour ajouter légende: on peut mettre ds environnement table
+- à charger avec `reledmac`. Sert à mettre deux textes en vis-à-vis. Syntaxe:
 
-- Customiser: la customisation se fait soit pour chaque tableau: en arg optionnel à `\pgfplotstabletypesetfile`, soit 
-pour tous les tableaux: Enlever les commentaires lignes 16-18
+```
+\begin{pages} %Mettre en vis-à-vis sur deux pages
+	\begin{Leftside}
+Texte de gauche
+	\end{Leftside}
 
-3. Exemple d'importation de tableau plus long: un tableau avec catégories socio-professionnelle
+	\begin{Rightside}
+	Texte de droite
+\end{Rightside}
+\end{pages}
+\Pages %imprimer le vis-à-vis
+```
 
-- ouvrir tableau. Exporter en csv. RQ: choisir TAB car il y a des virgules: on ne veut pas que ces virgules soient prises pour un chgt de colonne. Ce sont les virgule des nbres décimaux
-- nettoyer fichier obtenu: enlever ce qui n'est pas ds colonnes (titre, note, etc)
-- `\pgfplotstabletypesetfile[string type]{\table}` string type: indique qu'il faut prendre tel quel ce qu'il y a ds les colonnes. Sinon se demande pourquoi il y a des virgules.
-- Vous remarquerez que prend aussi les espaces sous employés...
-- RQ: on peut transformer en longtable pour insérer notes, je vous invite à lire manuel de pgfplotstable si besoin. 
-<!---  option begin table=\begin{longtable},
-%		end table=\caption{tableau 2}\end{longtable}  -->
+- Pour avoir un vis-à-vis en colonnes, remplacer l'environnement `pages` par `pairs` et la commande `\Pages` par `\Columns`
 
 
-
-
-### On continue. Reledmac et reledpar pour édition
-
-- présentation rapide d'un outil très puissant et complexe pour édition critique: reledmac pour edition critique, reledpar pour vis à vis (vont ensemble).
-
-1. Principe: numéroter ligne. `	\beginnumbering	 \pstart \pend \endnumbering`. Choisir de ne pas numéroter un paragraphe
-- on peut changer si on veut tous les combien les lignes sont numérotées. Renvoi au manuel. On peut faire numéroter chaque paragraphe: `\numberpstarttrue`
-- Une syntaxe spéciale pour les vers. renvoi maneul
-
-2. Apparat critique: familiar notes: celle appelées par un appel de notes; critical notes: sans appel de note, mais ds la note on a: le numéro de vers et un lemme (le morceau de texte qui a une variante); notes de fin
-+ appellés respectivement `\footnoteA, \Afootnote, \Aendnote`; 5 série, de A à E, pour chaque note.
-+ faire une note familiar A, une B. Pb: même appel de note.
-+ ->  Enlever commentaire ligne 10. 4 façon de faire apparaître un compteur: alph, Alph, roman, Roman (cf résumé cours 2). Essayer de mettre roman à la place
-+ faire note critique: pas très prtaique. Il faut commande `\edtext{#1}{#2}`. Arg 1: le mot qui va apparaître comme lemme; arg 2: la footnote critique avec son texte
-+  Mettre mot phasellus en lemme.
-+ Rq: typiquement le genre de situation où il vaut mieux se créer ses commandes... Je vais donner un exo maison sur ça. 
-
-3. Faire du vis à vis. package Reledpar.
-- environnements Leftside pour le texte de gauche, Rightside pour le texte de droite. Ces deux environnements sont eux-mêmes ds un environnement pages ou pairs. Pour que ca s'imprime, il faut à la fin de l'environnement pages ou columns mettre `\Pages` ou `\Columns`
-- Le package ledpar fait correspondre en vis-à-vis chaque « boîte » d’un texte à la boîte correspondante de l’autre texte : il faut donc qu’il y ait le même nombre de boîtes des deux côtés. 
+- Le package `reledpar` fait correspondre en vis-à-vis chaque "boîte" d’un texte à la boîte correspondante de l’autre texte : il faut donc qu’il y ait le même nombre de boîtes des deux côtés. 
 - Pour la poésie, chaque vers est une boîte
-- en prose, les boîtes sont délimitées par \pstart et \pend. Il est recommandé, en prose, de mere chaque paragraphe dans une boîte pour obtenir une synchronisation la plus fine possible. Si on a encodé en XML un texte, on peut ensuite facielement obtenir ça.
-- Exo: mettre ds les environnement voulus, faire apparaitre en vis à vis. **RQ**: il faut plusieurs compilation pour ca. créé des tas de fichiers auxiliaires: c ce qui permet de mettre bien vis à vis
-
-- **RQ bis**: si vous utilisez ce package, vous allez vous faire: pour le texte, un fichier; pour la trad, un autre fichiers; et créer un fichier mettre avec la structure de ces environnements emboité ds lesquels vous appelerez vos fichers, selon la méthode qu'on verra au dernier cours
--si vous l'employez: lisez bien intro: comment économiser de la mémoire avec ce package notamment.
- 
-+ verbatim
-
-+ Manipuler les compteurs
-
-+ Bibleref
-
-<mark>a mettre ds resume cours 2 créer ses commandes et environnements (2): arguments optionnels, présentation rapide de etoolbox</mark>
-
-
-
- - Des exo: je mettrai le corrigé; si vous ne comprenez pas, vous pourrez poser question
-- En attendant mars: vous pouvez aller regarder ouvrage xelatex appliqués aux SHS
-- Vous pouvez commencer à mettre des ref ds zotéro: je vous apprendrai à les utiliser
-- pratiquez latex. pas pour notes de cours (markdown plus prtaique) mais par ex si vous prenez notes sur bouquins
-- faites une liste au fur et à mesure de ch dont vous pourriez avoir besoin en latex, pour me poser questions
-- ds le readme, je vais mettre liste d'erreurs de compilation
-
+- en prose, les boîtes sont délimitées par `\pstart` et `\pend`.
