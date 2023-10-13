@@ -85,18 +85,19 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`csquotes`|Gérer les guillemets|
 |`endnote`|Créer des notes de fin|
 |`enumitem`|Modifier l'apparence des listes|
-|`etoolbox`|Commandes LaTeX remplaçant des commandes TeX (difficulté +++ ; pour ceux qui aiment programmer!)|
+|`etoolbox`|Commandes LaTeX remplaçant des commandes TeX (difficulté +++ ; pour ceux qui aiment programmer!). Comporte des commandes pour des instructions de type if... then.. else|
 |`fancyhdr`[Personnaliser la mise en page|Améliorer l'environnement `tabular`: indiquer par exemple la taille des colonnes`|
 |`framed`|Encadrer, surligner,... du texte|
 |`geometry`|Modifier la géométrie de la page (marges)|
 |`graphicx`|Insérer des images, manipuler des boites (rotation,...)|
 |`hyperref`|Hyperliens. (Appel du package à mettre à la fin; amélioré si utilisé avec `bookmark`)|
-|`ifthen`|Commande pour écrire une instruction if then else|
+|`ifthen`|Commandes pour écrire une instruction if then else. Moins pratique que les commandes du package `etoolbox`, mais plus simple à comprendre|
 |`indextools`|Faire un ou plusieurs index (fork de `imakeidx`)|
 |`lettrines`|Insérer des lettrines|
 |`lscape`|Pour inclure des pages en format paysage|
 |`pdflscape`|Inclure des pdf en format paysage|
 |`perpage`|Faire redémarrer un compteur à chaque page|
+|`pgf-pie`|Faire un diagramme "camembert"|
 |`minted`|Colorer des citations de code informatique (attention, nécessite une compilation en ligne de commande avec une option: voir le manuel, section 3.1)|
 |`multicol`|Mettre un texte sur plusieurs colonnes|
 |`pict2e`|Tracer des dessins|
@@ -123,7 +124,13 @@ LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jam
 
 OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-archive/info/lshort/french/lshort-fr.pdf)
 
+TISSEAU, Gérard et DUMAS, Jacque, [TikZ pour l'impatient](http://math.et.info.free.fr/TikZ/bdd/TikZ-Impatient.pdf)
 
+## Autres ressources
+
+[Geekographie maïeulesque](https://geekographie.maieul.net/)
+
+[Les fiches à Bébert](https://lesfichesabebert.fr/TeX/TeX.html)
 
 ## Trouver de l'aide
 
