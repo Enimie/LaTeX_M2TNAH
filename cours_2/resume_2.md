@@ -142,4 +142,8 @@ Sur la notion de boites dans LaTeX, voir LOZANO, Vincent, [Tout ce que vous avez
 - Pour créer un environnement avec arguments optionnels, utilisez le package `xargs`
 
 
-
+- **nb** Il n'est pas possible d'appeler l'argument du nouvel environnement dans la *dernière partie* de la commande `newenvironment` (celle qui indique le code qui sera appelé à la fermeture de l'environnement). Il faut:
+-  créer une "boite de sauvegarde" en mettant, avant la définition du nouvel environnement, `\newsavebox{\boite}` (on peut bien sûr donner un autre nom à la boite). 
+- Dans le code appelé à l'ouverture du nouvel environnement, mettre l'argument dans cette boite, par exemple: `\savebox{\boite}{#1}`
+- Dans le code appelé à la fermeture de l'environnement, on peut utiliser cette boite (et donc le contenu de l'argument) en utilisant: `\usebox{\boite}`.
+- Pour des exemples d'utilisation, voir l'ouvrage de LOZANO, Vincent, cité plus haut et mis dans la biliographie.
