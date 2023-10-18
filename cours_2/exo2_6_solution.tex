@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{romannum}%mettre un nombre en chiffres romains
+\usepackage{xspace}%gérer les espaces à la fin d'une commande
+\usepackage{framed}%faire des cadres
+
+
+
+
+%%%%%%
+%Niveau facile
+%%%%%%
+
+%la commande \prg
+\newcommand{\prg}[1]{\S #1\xspace}%il y a un argument (le numéro de paragraphe); \xspace permet d'obtenir le bon espace selon ce qui suit
+
+%la commande \oeuvre
+\newcommand{\oeuvre}[3]{#1, \emph{#2} (#3)}%Trois arguments, l'auteur, le titre et la date. Le titre (#2) est en emphase; la date (#3) est entre parenthèses
+
+\newcommand{\siecle}[1]{\textsc{\romannum{#1}}\textsuperscript{e} siècle\xspace}
+
+%\newenvironment{chronologie}[1]{\begin{framed}\begin{center}\textbf{#1}\end{center}\begin{description}}{\end{description}\end{framed}}
+
+%l'environnement chronologie
+\newenvironment{chronologie}[1]{\par #1\begin{description}}{\end{description}}
+%un argument (le titre de la chronologie); après le titre, nouveau paragraphe et environnement description, qui permet d'associer un élément (l'argument optionnel de  \item) à sa description. L'argument de \item est mis par défaut en gras dans l'environnement description.
+
+
+
+
+
+%%%%%%
+%Niveau intermédiaire
+%%%%%%
+
+%On modifie l'environnement chronologie pour le mettre dans un environnement framed. Le titre (l'argument 1) doit être centré et en gras.
+% Attention à ce que les environnements soient bien emboîtés, sans se superposer 
+%Mettre en commentaire la ligne 27 et décommentez les suivantes pour tester.
+
+%\newenvironment{chronologie}[1]{%code à l'ouverture de l'environnement:
+% \begin{framed}%on ouvre framed
+%   \begin{center}\textbf{#1}\end{center}%on met l'argument en gras et centré
+%   \par%un nouveau paragraphe
+%    \begin{description}%on ouvre un environnement description
+%      }%ne pas oublier de fermer l'accolade
+%{\end{description}\end{framed}}%code à la fermeture de l'environnement: on ferme l'environnement description, on ferme l'environnement framed
+
+
+\begin{document}
+
+
+
+les \prg{3} et 4
+
+\oeuvre{Victor Hugo}{Les Contemplations}{1856}
+
+    \begin{chronologie}{Dynastie des Julio-Claudiens}
+    \item[27 av. JC-14 ap. JC] Auguste
+    \item[14-37 ap. JC] Tibère
+    \item[37-41 ap. JC] Caligula
+    \item[41-54 ap. JC] Claude
+    \item[54-68] Néron
+    \end{chronologie}
+    
+
+
+
+Au \siecle{3} de notre ère
+
+
+    \begin{chronologie}{Dynastie des Julio-Claudiens}
+    \item[27 av. JC-14 ap. JC] Auguste
+    \item[14-37 ap. JC] Tibère
+    \item[37-41 ap. JC] Caligula
+    \item[41-54 ap. JC] Claude
+    \item[54-68] Néron
+    \end{chronologie}
+
+
+\end{document}
