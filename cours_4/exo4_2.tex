@@ -1,0 +1,35 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+%%% attention: problème avec polyglossia dans la texlive 2023
+\usepackage[french]{babel}%on peut préciser d'autres langues. La nouvelle version de polyglossia pose probleme avec le style de l'EnC
+
+
+
+\usepackage[citestyle=verbose-ibid]{biblatex}
+%\usepackage[style=enc,sorting=nyt,maxbibnames=10]{biblatex}%charger le style de l'EnC (téléchargeable ici https://ctan.org/pkg/biblatex-enc)
+
+%\addbibresource{} Mettre le chemin de sa bibliographie (fichier .bib)
+
+
+\usepackage{csquotes}%nécessaire pour utiliser le style bibliographique, qui utilise enquote
+
+
+
+
+
+%\defbibheading{}{} Définir les titres des sous-parties de bibliographie
+
+\begin{document}
+%ajouter des références bibliographique: \cite{}, \footcite{}
+%tester les prénotes et postnotes
+
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+Ut purus elit, vestibulumut, placerat ac, adipiscing vitae, felis. 
+Curabitur dictumgravida mauris. Namarcu libero,  consectetuer id, vulputate a, magna.
+
+%imprimer sa bibliographie, ajouter des options (heading, keyword)
+%\printbibliographie
+\end{document}
