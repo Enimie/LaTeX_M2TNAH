@@ -1,0 +1,264 @@
+%Document vide aux normes de l'École nationale des Chartes
+%Dernières modifications E. Rouquette (12/2023)
+
+%%%%%%%%%%%%%%%%%%%%%% PRÉAMBULE
+
+
+%%%%%%%%%%%%%% partie obligatoire du préambule
+\documentclass[a4paper,12pt,twoside]{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage[french]{babel}%on peut préciser d'autres langues.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES UTILISÉS
+
+\usepackage{csquotes} % les guillemets français
+\usepackage{lettrine} %faire une lettrine (pas obligatoire)
+
+\usepackage[style=enc,sorting=nyt,maxbibnames=10]{biblatex}%charger le style de l'EnC (téléchargeable ici https://ctan.org/pkg/biblatex-enc)
+\addbibresource{} %le fichier bibliograhique. Exemple de chemin à partir du dossier où se trouve le document maître:Exemple ./dossierA/fichier.bib
+%\defbibheading{}{\subsection*{}} Si l'on veut changer le titre de la/les bibliographie(s)
+
+
+%%%Faire un ou plusieurs index
+
+%\usepackage{imakeidx} %pour faire un ou plusieurs index
+%\makeindex %commande pour générer l'index
+
+
+%RAJOUTEZ ICI VOS PACKAGES
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONFIGURATION DE MISE EN PAGE
+
+%%%%%% Les compteurs (sections, subsections, etc)
+
+
+%%%%%% Les compteurs (sections, subsections, etc)
+\renewcommand{\thesection}{\Roman{section}.}%On ne fait apparaître que le numéro de la section
+\renewcommand{\thesubsection}{\arabic{subsection}.}%subsection en chiffres arabes
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}%subsubsection en lettres minuscules
+%Si l'on veut faire apparaître les subsubsection dans le table des matières (à commenter sinon)
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}  % La subsubsection (profondeur=3 dans la table des matières) apparait numérotée dans la TdM
+
+
+
+%%%%%  Configurer le document selon les normes de l'école
+
+\usepackage[margin=2.5cm]{geometry} %marges
+\usepackage{setspace} % espacement qui permet ensuite de définir un interligne
+\onehalfspacing % interligne de 1.5
+\setlength\parindent{1cm} % indentation des paragraphes à 1 cm
+
+%%%%% Mise en forme des headers (haut de page)
+
+\usepackage{fancyhdr} %package utilisé pour modifier les headers
+\pagestyle{fancy} %utiliser ses propres choix de mise en page et non ceux par défaut du package
+
+\setlength\headheight{16pt}%la hauteur des headers
+\renewcommand{\sectionmark}[1]{\markright{\small\textit{\thesection~\  #1}}}%Faire apparaître dans les headers les sections en  petit et en italiques
+\renewcommand{\sectionmark}[1]{}%Commenter la lign précédetne et mettre celle-ci pour ne pas avoir le titre des sections dans le header
+\renewcommand{\chaptermark}[1]{\markboth{\small\chaptername~\thechapter~--\ \textit{#1}}{}}%idem pour les chapitres
+%\renewcommand{\chaptermark}[1]{}%Commenter la ligne précédente et mettre celle-ci pour ne pas avoir le titre des chapitres  dans le header
+
+
+
+%indiquer des règles d'hyphénation pour des mots précis si besoin
+%\begin{hyphenrules}{french}
+%	\hyphenation{}
+%\end{hyphenrules}
+
+
+%%%%%%% Package hyperref
+% A mettre après les autres appels de packages car redéfinit certaines commandes).
+
+\usepackage[colorlinks=false, breaklinks=true, pdfusetitle, pdfsubject ={Mémoire HN}, pdfkeywords={les mots-clés}]{hyperref} %
+\usepackage[numbered]{bookmark}%va avec hyperref; marche mieux pour les signets. l'option numbered: les signets dans le pdf sont numérotés
+
+% Compléter pdfsubjet et pdfkeywords
+%Explication des options de hyperref (modifiables)
+% hyperindex=false
+% colorlinks=false: pour que le cadre des liens n'apparaisse pas à l'impression
+% breaklinks permet d'avoir des liens allant sur pusieurs lignes
+%pdfusetitle: utiliser \author et \title pour produire le nom et le titre du pdf
+
+
+%avec overleaf, utiliser :
+%\usepackage[xetex]{hyperref}
+%\hypersetup{
+	%	pdfauthor = {Prénom Nom},
+	%	pdftitle = {titre},
+	%	pdfsubject = {sujet},
+	%	pdfkeywords = {premier mot-clé} {deuxième mot-clé} {troisième mot-clé} {etc}
+	%}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Package glossaries
+
+%Exception: il faut le charger APRÈS hyperref
+%\usepackage[toc=true]{glossaries}
+%\makeglossaries
+%avec TexStudio: F9 pour compiler le glossaire (s'il y a aussi un index)
+
+%mettre les entrées du glossaire ici ou les mettre dans un fichier à part que l'on appelle ici par \loadglsentries{nom_du_fichier.tex}
+
+%Structure d'une entrée de glossaire
+%\newglossaryentry{}{%
+%	name={},%
+%	description={}
+%}
+
+
+
+%%%%%%%%%%%%%%%%%% DÉFINITION DES COMMANDES ET ENVIRONNMENTS
+
+
+
+
+
+
+
+ %%%%%%%%%%%%%% INFORMATIONS POUR LA PAGE DE TITRE
+\author{Prénom Nom - M2 TNAH}
+\title{Titre du mémoire}
+
+%%%%%%%%%%%%%%%%%%%%%% DOCUMENT
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			
+			\bigskip
+			
+			\begin{large}				
+				ÉCOLE NATIONALE DES CHARTES\\
+				UNIVERSITÉ PARIS, SCIENCES \& LETTRES
+			\end{large}
+			\begin{center}\rule{2cm}{0.02cm}\end{center}
+			
+			\bigskip
+			\bigskip
+			\bigskip
+			\begin{Large}
+				\textbf{Prénom Nom}\\
+			\end{Large}
+		%selon le cas
+			\begin{normalsize} \textit{licencié.e ès lettres}\\
+				\textit{diplômé.e de master}
+			\end{normalsize}
+			
+			\bigskip
+			\bigskip
+			\bigskip
+			
+			\begin{Huge}
+				\textbf{TITRE DU MÉMOIRE}\\
+			\end{Huge}
+			\bigskip
+			\bigskip
+			\begin{LARGE}
+				\textbf{SOUS-TITRE DU MÉMOIRE}\\
+			\end{LARGE}
+			
+			\bigskip
+			\bigskip
+			\bigskip
+			\begin{large}
+			\end{large}
+			\vfill
+			
+			\begin{large}
+				Mémoire 
+				pour le diplôme de master \\
+				\enquote{Technologies numériques appliquées à l'histoire} \\
+				\bigskip
+				2024
+			\end{large}
+			
+		\end{center}
+	\end{titlepage}
+
+	\thispagestyle{empty}	
+	\cleardoublepage
+	
+\frontmatter
+
+	\chapter{Résumé}
+\medskip
+	Résumé du mémoire en français. Cette page ne doit pas dépasser une page.\\
+	
+	\textbf{Mots-clés:} une liste de mots-clés~; séparés par des points-virgules.
+	
+	\textbf{Informations bibliographiques:} Prénom Nom, \textit{Titre du mémoire. Sous-titre du mémoire}, mémoire de master \enquote{Technologies numériques appliquées à l'histoire}, dir. [Noms des directeurs.trices], École nationale des chartes, 2024.
+	
+		\newpage{\pagestyle{empty}\cleardoublepage}
+	
+	\chapter{Remerciements}
+	
+\lettrine{M}es remerciements vont tout d'abord à\dots
+	\newpage{\pagestyle{empty}\cleardoublepage}
+	
+%%%%%%%%%%%% \bibliographie ici (normes de l'EnC)
+%\printbibliography
+
+	
+\chapter{Introduction}	
+Mon introduction
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+%%%%%%%%%%%%%%%%%Le corps du mémoire
+	\mainmatter
+%Trier par dossiers si besoin (front, main,annexes,), se crérer un docuemnt .tex par structure (section ou chapter selon la taille et la pertinence) Exemple de chemin à partir du dossier où se trouve le document maître: ./dossierA/fichier.tex
+
+	
+
+	\part{Une partie}
+\chapter{Mon premier chapitre}
+%\input{exemple_section1.tex} %Input: importer un fichier
+%\input{ma_section2}
+
+%etc
+%Ou bien: ne pas mettre chapter, et importer le chapitre complet:
+%\input{mon_chapitre_1.tex}
+%\input{mon_chapitre_2.tex}	
+%etc
+	
+	\part{Une autre partie}
+	
+	%etc.
+	
+	
+	\chapter*{Conclusion}
+	\addcontentsline{toc}{chapter}{Conclusion}
+\newpage{\pagestyle{empty}\cleardoublepage}
+	
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+
+\appendix %Des appendices: tables figures, etc
+
+\chapter[Titre court]{Le titre très long de la première annexe}
+
+%\input{fichier.tex}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+%%%%%%%%%%%%%%%%%%
+
+\backmatter % glossaire, index, table des figures, table des matières.. (la bibliographie a déjà été appelée)
+
+%\printindex
+%\printglossaries[title=Glossaire]
+%\listoftables
+%\listoffigures
+\tableofcontents
+\end{document}
