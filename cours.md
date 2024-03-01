@@ -1,3 +1,13 @@
+---
+title: LaTeX et la rédaction de mémoire  (EnC 2556) 
+subtitle: Cours (pdf réalisé avec pandoc à partir du fichier cours.md)
+date: 2023-2024
+author: Enimie Rouquette
+fontsize: 12pt
+toc: true
+---
+
+
 ![LaTeX](LaTeX_logo.svg.png)
 
 
@@ -7,9 +17,9 @@
 ## La structure d'un document
 
 - un préambule
-- le corps du texte entre les balises `begin{document}` et `\end{document}`
+- le corps du texte entre les balises `\begin{document}` et `\end{document}`
 
-```
+```latex
 \documentclass[12pt,a4paper]{article} %appel de classe
 %appel des packages:
 \usepackage{fontspec} %package pour gérer les fontes
@@ -28,12 +38,12 @@ corps du texte
 **Attention**
 - La dernière version du package `polyglossia` pose des problèmes avec le style bibliographique de l'ÉnC. Charger à sa place `babel`: remplacer les lignes
 
-```
+```latex
 \usepackage{polyglossia} %package pour gérer les langues
 \setmainlanguage{french}
 ```
 par: 
-```
+```latex
 \usepackage[french]{babel}
 ```
 
@@ -140,7 +150,6 @@ par:
 |`\footnote{#1}`|Note de bas de page|
 |`\marginpar{#1}`|Note marginale|
 
-<!-- - L'apparence du numéro dans la note de bas de page peut être modifiée avec `polyglossia`. Mettre  à la commande `\setmainlanguage{french}`, dans l'argument optionnel, l'option `frenchfootnote=true`-->
 
 
 ### Listes
@@ -156,7 +165,8 @@ par:
 - Si l'on met un argument optionnel à `\item`, on peut modifier ponctuellement le label (l'élément précédant l'entrée dans la liste: tiret, point,...)
 
 - Pour modifier sur l'ensemble du document le label des environnements `itemize`:  mettre  à la commande `\setmainlanguage{french}` l'option `[frenchitemlabels=true]{french}` pour obtenir un cadratin; pour choisir le label, ajouter ensuite comme option `itemlabels= ` avec le label choisi. 
-- Exemple: `\setmainlanguage[frenchitemlabels=true, itemlabels=\textendash]{french}` pour obtenir un demi-cadratin.
+- Exemple: `\setmainlanguage[frenchitemlabels=true, 
+itemlabels=\textendash]{french}` pour obtenir un demi-cadratin.
 - **nb** si l'on utilise le package `babel` plutôt que `polyglossia`, les items sont déjà des cadratins
 
 - Pour modifier le label d'un environnement `enumerate` donné, il faut utiliser le package `enumerate`. 
@@ -201,23 +211,24 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 ### Commandes "à bascule" pour changer  la taille des caractères
 
 - Si l'on veut modifier sur une portion de texte donnée la taille des caractères, il faut utiliser une commande à bascule. Le comportement de ce type de commandes est différent: elles ne prennent pas d'argument, mais sont insérées entre accolades; le texte dont la taille change est entre les accolades, après la commande.
-- Exemple: {\large un texte plus gros}
+- Exemple: `{\large un texte plus gros}` donne {\large un texte plus gros}
+
 - La taille obtenue est relative: elle dépend de la taille définie lors de l’appel de classe.
 
  Liste des commandes à bascule, pour un résultat du plus petit au plus gros (`normalsize` correspond à la taille du corps du texte, `footnotesize` à la taille des notes de bas de page):
 
 |Commande|
 |-- |
-|{\tiny }|
-|{\scriptsize }|
-|{\footnotesize }|
-|{\small }|
-|{\normalsize }|
-|{\large }|
-|{\Large }|
-|{\LARGE }|
-|{\huge }|
-|{\Huge }|
+|`{\tiny }`|
+|`{\scriptsize }`|
+|`{\footnotesize }`|
+|`{\small }`|
+|`{\normalsize }`|
+|`{\large }`|
+|`{\Large }`|
+|`{\LARGE }`|
+|`{\huge }`|
+|`{\Huge }`|
 
 
 ### Environnements modifiant l'alignement du texte
@@ -263,7 +274,7 @@ Sur la notion de boites dans LaTeX, voir LOZANO, Vincent, [Tout ce que vous avez
 - chaque entrée comporte un certain nombre d'éléments de description bibliographique (nature de la référence, titre, auteur, date, etc), chacun indiqué dans le champ correspondant.
 - exemple d'entrée: 
 
-```
+```latex
 @Book{maieul_rouquette_2012, 
   author = {Maïeul Rouquette and Enimie Rouquette and Brendan Chabannes},
   title = {(Xe)\LaTeX{}  appliqué aux sciences humaines},
@@ -280,7 +291,7 @@ Dans cet exemple, la référence est un livre (`@book`), sa clef est `maieul_rou
 
 Exemple de préambule appelant `biblatex` et un fichier bibliographique:
 
-```
+```latex
 \documentclass[a4paper]{book}
 \usepackage{fontspec}
 \usepackage{xunicode}
@@ -299,12 +310,13 @@ Exemple de préambule appelant `biblatex` et un fichier bibliographique:
 	- Si la postnote contient aussi du texte, il faut faire précéder le numéro de pagination de la commande `\pno~`. 
 
 Exemples: 
+```latex
+\footcite[Sur ce sujet, voir][99]{maieul_rouquette_2012}
+\footcite[Sur ce sujet, voir][]{maieul_rouquette_2012}
+\footcite[\pno~99 et suivantes]{maieul_rouquette_2012}
+```
 
-	 `\footcite[Sur ce sujet, voir][99]{maieul_rouquette_2012}`
- 	 `\footcite[Sur ce sujet, voir][]{maieul_rouquette_2012}`
-	 `\footcite[\pno~99 et suivantes]{maieul_rouquette_2012}`
-
-- pour ne citer respectivement que l'auteur et le titre d'une référence: `\citeauthor{clef}`et `\citetitle{clef}
+- pour ne citer respectivement que l'auteur et le titre d'une référence: `\citeauthor{clef}` et `\citetitle{clef}`
 
 - pour imprimer la bibliographie: `\printbibliography`
 
@@ -442,7 +454,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 	+ **nb**: pour en apprendre plus sur l'arborescence d'une distribution TeX et ce que signifie `texmf local`, voir: [Guide pratique de Tex Live 2023](https://www.tug.org/texlive/doc/texlive-fr/texlive-fr.pdf) p.7, ou Daniel Flipo, [Admninistration d'une installation TeX](http://daniel.flipo.free.fr/doc/tex-admin/TeX-admin.pdf)
 	+ On le passe ensuite en option à `biblatex`: `\usepackage[style=enc]{biblatex}`
 
-**Attnetion** La dernière version de polyglossia provoque des erreurs de compilation avec ce style. Deux possibilités:
+**Attention** La dernière version de polyglossia provoque des erreurs de compilation avec ce style. Deux possibilités:
 - télécharger et utiliser localement la version antérieure de polyglossia en attendant que ce problème soit résolu
 - utiliser le package `babel` à la place de `polyglossia` (voir dans la définition du préambule)
 
@@ -451,7 +463,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 **RQ**
 - Pour que les œuvres anonymes soient classées en début de bibliographie, par titre, il faut utiliser le package `biblatex-anonymous`, et ajouter l'option `sorting` à l'appel du package  `biblatex`: 
 
-```
+```latex
 \usepackage[style=enc,sorting=anonymous]{biblatex}
 \usepackage{biblatex-anonymous}
 ```
@@ -469,7 +481,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 
  Exemple: 
 
-```
+```latex
 \printbibliography[keyword=sources-primaires]
 \printbibliography[notkeyword=sources-primaires]
 ```
@@ -481,7 +493,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 
 Exemple: 
 
-```
+```latex
 \documentclass[a4paper]{book}
 \usepackage{fontspec}
 \usepackage{xunicode}
@@ -526,15 +538,16 @@ Exemple:
 - l’inverse n’est pas vrai : les modifications apportées dans le fichier BibTeX ne sont pas “remontées” dans Zotero.
 
 Installation: 
+
 1. télécharger le XPI file et le sauvegarder. **attention: sous firefox, faire clic droit et enregistrer la cible du lien** (un simple clic sur le lien ne marchera pas)
 2. Dans zotero: `extension - ajouter depuis un fichier - installer - redémarrer zotero`
-4. Configurer Betterbibtex pour l'exportation: `outils - betterbibtex -  ouvrir les preference de betterbitex`: 
+3. Configurer Betterbibtex pour l'exportation: `outils - betterbibtex -  ouvrir les preference de betterbitex`: 
 -  onglet `exportation`: 
 	-  decocher "exporter les caractères unicodes"
 	-  choisir "ajouter les url à l'exportation dans le champs url"
 	- onglet divers: décocher "appliquer la capitalisation aux titres"
 - onglet `clef de citation`: possibilité de choisir la façon dont les clefs seront générées
-3. Mettre en place la synchronisation  entre un fichier BibTex et une collection dans Zotero: faire un clic-droit sur la collection à exporter: `exporter - choisir betterbibtex` - cocher "garder à jour"
+4. Mettre en place la synchronisation  entre un fichier BibTex et une collection dans Zotero: faire un clic-droit sur la collection à exporter: `exporter - choisir betterbibtex` - cocher "garder à jour"
 
 **RQ** Quand vous "aspirez" une référence bibliographique dans Zotero, pensez à vérifier que les informations sont bien entrées; vous pouvez utiliser le champs "extra" pour rajouter des champs propres à bibtex (voir supra)
 
@@ -681,7 +694,7 @@ Pour des exemples, voir les exercices.
 ## reledmac
 
 1. Pour numéroter les  lignes:  
-```
+```latex
 \beginnumbering  
  \pstart
 Le texte à numéroter
@@ -693,7 +706,7 @@ Pour configurer la numérotation, voir le manuel; idem pour la syntaxe des vers.
 
 Dans le cas de vers, nous aurons: 
 
-```
+```latex
 \beginnumbering
  \stanza
 un vers.&
@@ -715,7 +728,7 @@ Pour des exemples, voir les exercices.
 
 - à charger avec `reledmac`. Sert à mettre deux textes en vis-à-vis. Syntaxe:
 
-```
+```latex
 \begin{pages} %Mettre en vis-à-vis sur deux pages
 	\begin{Leftside}
 Texte de gauche
@@ -754,7 +767,7 @@ Texte de gauche
 ### Création d'un index simple
 
 - Dans le préambule: 
-```
+```latex
 \usepackage{imakeidx}
  \makeindex
 ```
@@ -777,7 +790,7 @@ Texte de gauche
 - Pour chaque index que l'on veut créer, mettre en préambule une commande `\makeindex`, avec dans l'argument optionnel `title="nom de l'index` et `name="clef de l'index"`
 - Exemple: 
 
-```
+```latex
 \usepackage{imakeidx}
 \makeindex[intoc, title=Index général]
 \makeindex[intoc, name=aut, title=Index des auteurs]
@@ -794,13 +807,14 @@ Texte de gauche
 
 ## Les glossaires
 
-```
-\usepackage[toc=true]{glossaries}%doit être appelé après hyperref (exception à la règle)
+```latex
+\usepackage[toc=true]{glossaries}%doit être appelé après hyperref 
+%(exception à la règle)
 \makeglossaries
 ```
 - Définir les entrées de glossaire dans le préambule ou dans un fichier à part, avec la commande `\newglossaryentry{#1}{#2}` où `#1` = la clef de l'entrée, et  `#2` contient le mot et sa définition.  Exemples:
 
-```
+```latex
 \newglossaryentry{ex}{%
 	name={exemple},%
 	description={Illustration% 
@@ -808,11 +822,12 @@ Texte de gauche
 
 \newglossaryentry{co}{%
 	name={concept},%
-	description={Idée générale, représentation mentale et abstraite que l’on a d’un objet}}
+	description={Idée générale, représentation mentale 
+et abstraite que l’on a d’un objet}}
 ```
 - on appele dans le corps du texte les  mots définis dans le glossaire au moyen de la commande `\gls{entree_du_glossaire}`. Exemple: `\gls{ex}`
 -  pour compiler le glossaire, si l'on a en plus un index,  il faut lancer de le terminal la commande `makeglossaries nomdufichier`. Texstudio le fait avec la commande: `outil-glossaire` (F9)
-- Pour imprimer le glossaire: `\printglossary`. On peut modifier le titre en argument optionnel: `\printglossary[title=le nouveau titre]
+- Pour imprimer le glossaire: `\printglossary`. On peut modifier le titre en argument optionnel: `\printglossary[title=le nouveau titre]`
 - Pour faire apparaître le glossaire dans la table des matière, on passe une option à l'appel de package `\usepackage[toc=true]{glossaries}`
 - on peut créer un glossaire dans un fichier à part et l'appeler dans le preambule par `\loadglsentries{fichier.tex}`
 
@@ -823,7 +838,7 @@ Texte de gauche
 
 - Il est possible d'indiquer des règles d'hyphénation (de césure) pour des mots précis, par langue:
 
-```
+```latex
 \begin{hyphenrules}{french}
 	\hyphenation{}
 \end{hyphenrules}
@@ -842,20 +857,23 @@ Exemple;  `\addtocounter{ex}{1}`: on ajoute 1 au compteur "ex".
 - Afficher la valeur actuelle du compteur: `\theNom_du_compteur`. Exemple; `\theex`
 affichera la valeur du compteur `ex`
 - autres façon d'afficher la valeur du compteur: 
-   + \roman{ex} affichera la valeur du compteur "ex" en  nombre romains minuscules  
-   + \Roman{ex} affichera la valeur du compteur "ex" en nombre romains majuscules 
-   + \alph{ex} affichera la valeur du compteur "ex" en lettres minuscules   
-   + \Alph{ex} affichera la valeur du compteur "ex" en lettres majuscules 
+   + `\roman{ex}` affichera la valeur du compteur "ex" en  nombre romains minuscules  
+   + `\Roman{ex}` affichera la valeur du compteur "ex" en nombre romains majuscules` 
+   + `\alph{ex}` affichera la valeur du compteur "ex" en lettres minuscules   
+   + `\Alph{ex}` affichera la valeur du compteur "ex" en lettres majuscules 
 
 - Exemple d'utilisation de compteur dans un nouvel environnement:
-```
+
+```latex
 \newcounter{ex}%création du compteur "ex"
 \newenvironment{exemple}%
-{\addtocounter{ex}{1}\textbf{Exemple \theex}}%à l'ouverture de l'environnement, on ajoute 1 au compteur "ex", et on fait apparaître en gras le numéro de l'exemple avec \theex
+{\addtocounter{ex}{1}\textbf{Exemple \theex}}%à l'ouverture de l'environnement, 
+%on ajoute 1 au compteur "ex",
+% et on fait apparaître en gras le numéro de l'exemple avec \theex
 {}%il ne se passe rien à la fermeture de l'environnement
 ```
 ce qui donnera l'utilisation suivante, où les exemples seront numérotés:
-```
+```latex
 \begin{exemple}
 Un premier exemple
 \end{exemple}
