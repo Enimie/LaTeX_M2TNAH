@@ -67,7 +67,6 @@ Texte de gauche
 
 - Pour avoir un vis-à-vis en colonnes, remplacer l'environnement `pages` par `pairs` et la commande `\Pages` par `\Columns`
 
-
 - Le package `reledpar` fait correspondre en vis-à-vis chaque "boîte" d’un texte à la boîte correspondante de l’autre texte : il faut donc qu’il y ait le même nombre de boîtes des deux côtés. 
 - Pour la poésie, chaque vers est une boîte
 - en prose, les boîtes sont délimitées par `\pstart` et `\pend`.
@@ -122,7 +121,7 @@ Exemples:
  	 `\footcite[Sur ce sujet, voir][]{maieul_rouquette_2012}`
 	 `\footcite[\pno~99 et suivantes]{maieul_rouquette_2012}`
 
-- pour ne citer respectivement que l'auteur et le titre d'une référence: `\citeauthor{clef}`et `\citetitle{clef}
+- pour ne citer respectivement que l'auteur et le titre d'une référence: `\citeauthor{clef}`et `\citetitle{clef}`
 
 - pour imprimer la bibliographie: `\printbibliography`
 
@@ -344,6 +343,7 @@ Exemple:
 - l’inverse n’est pas vrai : les modifications apportées dans le fichier BibTeX ne sont pas “remontées” dans Zotero.
 
 Installation: 
+
 1. télécharger le XPI file et le sauvegarder. **attention: sous firefox, faire clic droit et enregistrer la cible du lien** (un simple clic sur le lien ne marchera pas)
 2. Dans zotero: `extension - ajouter depuis un fichier - installer - redémarrer zotero`
 4. Configurer Betterbibtex pour l'exportation: `outils - betterbibtex -  ouvrir les preference de betterbitex`: 

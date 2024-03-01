@@ -76,16 +76,16 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 
 |Commande|
 |-- |
-|{\tiny }|
-|{\scriptsize }|
-|{\footnotesize }|
-|{\small }|
-|{\normalsize }|
-|{\large }|
-|{\Large }|
-|{\LARGE }|
-|{\huge }|
-|{\Huge }|
+|`{\tiny }`|
+|`{\scriptsize }`|
+|`{\footnotesize }`|
+|`{\small }`|
+|`{\normalsize }`|
+|`{\large }`|
+|`{\Large }`|
+|`{\LARGE }`|
+|`{\huge }`|
+|`{\Huge }`|
 
 
 ### Environnements modifiant l'alignement du texte
