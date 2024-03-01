@@ -78,6 +78,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 
 |Package|Usage|
 |-- |-- |
+|`adjustbox`|Adapter au mieux la taille d'un flottant|
 |`biblatex`|Bibliographie|
 |`biblatex-manuscripts-philology`|Décrire dans une base bibliographique des manuscripts|
 |`biblatex-multiple-dm`|Pouvoir utiliser plusieurs modèles de données avec `biblatex`|
@@ -136,11 +137,17 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 
 ROUQUETTE, Maïeul, [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
 
+FRANC, Jean-Pierre, [TikZ, dessiner avec LaTeX](https://sbb169ee77282477c.jimcontent.com/download/version/1454697202/module/10275560298/name/TikZ-Manuel.pdf),
+
+
+KARNAJ, [Zeste de savoir. Présenter du code source dans un document LaTeX](https://zestedesavoir.com/tutoriels/pdf/1848/presenter-du-code-source-dans-un-document-latex.pdf)
+
 LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander](https://archives.framabook.org/docs/latex/framabook5_latex_v1_art-libre.pdf)
 
 OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-archive/info/lshort/french/lshort-fr.pdf)
 
 TISSEAU, Gérard et DUMAS, Jacque, [TikZ pour l'impatient](http://math.et.info.free.fr/TikZ/bdd/TikZ-Impatient.pdf)
+
 
 ## Autres ressources
 
