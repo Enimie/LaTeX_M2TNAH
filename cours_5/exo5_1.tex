@@ -1,0 +1,54 @@
+\documentclass[12pt,twoside]{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\usepackage{minted}%citer du code
+
+\begin{document}
+Citer du code avec latex. Prérequis:
+\begin{itemize}
+  \item avoir python 
+  \item avoir avec python la bibliothèque Pygments %https://pygments.org/
+\end{itemize}
+
+Attention, la compilation doit se faire avec l'option -shell-escape passé à la commande xelatex:  configurer  TexStudio
+
+
+%1/ Décommentez et mettre les codes suivants dans l'environnement minted avec en argument obligatoire le nom du langage
+%3/ linenos et firstnumber=5 pour numéroter et pour commencer la numérotation à la ligne indiquée par firstnumber.
+
+\LaTeX: 
+
+%commande LaTeX pour indexer  les auteurs mentionnés
+%\newcommand{\auteur}[1]{#1\index[npr]{#1}}
+
+Python
+
+%#Un commentaire
+%def f(x):
+% return x**2
+
+XML
+
+%<racine>
+% <element attribut="valeur de l'attribut">
+%  contenu
+% </element>
+%</racine>
+
+JSON
+
+%var courses = {
+% "fruits": [
+%   { "kiwis": 3,
+%     "mangues": 4,
+%     "pommes": null
+%   },
+%   { "panier": true },
+% ]
+%};
+
+
+\end{document}
