@@ -156,6 +156,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 - `! Missing number, treated as zero`: on a appelé un argument dans la définition d'une nouvelle commande ou d'un nouvel environnement, sans indiquer en option qu'il y aurait un argument
 - `! Illegal parameter number in definition of \<nom>`: on appelle, dans la définition d'une nouvelle commande ou d'un nouvel environnement, un argument d'un nombre plus élevé que le nombre d'argument indiqué en option
 - ` Missing $ inserted`: on a tapé une commande mathématique sans la mettre entre les symboles `$`.
+- `Nested note`: une `footnote` dans une autre.
  
 
 
