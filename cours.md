@@ -1,8 +1,7 @@
 ---
 title: LaTeX et la rédaction de mémoire  (EnC 2556) 
-subtitle: Cours (pdf réalisé avec pandoc à partir du fichier cours.md)
-date: 2023-2024
-author: Enimie Rouquette
+subtitle: (pdf réalisé avec pandoc à partir du fichier cours.md)
+author: Enimie Rouquette (2024-2025)
 fontsize: 12pt
 toc: true
 ---
@@ -265,6 +264,37 @@ Il existe aussi le package `fancybox` pour créer des boites encadrées
 
 Sur la notion de boites dans LaTeX, voir LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander](https://archives.framabook.org/docs/latex/framabook5_latex_v1_art-libre.pdf), p. 73 *sq*.
 
+Créer ses commandes et environnements
+=====================================
+
+Syntaxe pour créer une commande
+-------------------------------
+
+-  `\newcommand{#1}[#2]{#3}`. `#1`= nom de la commande; `#2`=nombre d'arguments de la nouvelle commande; `#3`= code de la nouvelle commande
+- Les commandes doivent être créées dans le préambule.
+
+- Syntaxe pour créer une commande avec argument optionel, grâce au package `xargs`:
+
+- `\newcommandx{#1}[#2][#3]{#4}` `#1`=nom de la commande; `#2`= nombre d'arguments; `#3`=liste des arguments optionnels (liste de numéros indiquant la position des arguments optionnels dans la commande). Une  valeur par défaut peut être attribuée aux arguments optionnels, consulter le manuel de `xarg`; `#4`= le code
+
+- Tester si un argument est vide grâce au packet `etoolbox`: utiliser la commande `\ifstrempty{#1}{#2}{#3}`. `#1`=la chaine de caractères que l'on va tester (ça peut être un argument de notre ouvelle commande, par exemple `#1`); `#2`=ce qui se passe si la chaine est vide; `#3`=ce qui se passe sinon.
+
+Syntaxe pour créer un environnement
+-----------------------------------
+
+-`\newenvironment{#1}[#2]{#3}{#4}`. `#1`= nom de l'environnement; `#2`=nombre d'arguments du nouvel environnement; `#3`= code appelé à l'ouverture de l'environnement; `#4` = code appelé à la fermeture de l'environnement
+
+- Pour créer un environnement avec arguments optionnels, utilisez le package `xargs`
+
+
+- **nb** Il n'est pas possible d'appeler l'argument du nouvel environnement dans la *dernière partie* de la commande `newenvironment` (celle qui indique le code qui sera appelé à la fermeture de l'environnement). Il faut:
+-  créer une "boite de sauvegarde" en mettant, avant la définition du nouvel environnement, `\newsavebox{\boite}` (on peut bien sûr donner un autre nom à la boite). 
+- Dans le code appelé à l'ouverture du nouvel environnement, mettre l'argument dans cette boite, par exemple: `\savebox{\boite}{#1}`
+- Dans le code appelé à la fermeture de l'environnement, on peut utiliser cette boite (et donc le contenu de l'argument) en utilisant: `\usebox{\boite}`.
+- Pour des exemples d'utilisation, voir l'ouvrage de LOZANO, Vincent, cité plus haut et mis dans la biliographie.
+
+
+
 # Gérer sa bibliographie: biblatex, biber et Zotero
 
 ## Principes
@@ -440,7 +470,7 @@ Exemples de style:
 
 |Style|Description|
 |-- |-- |
-|numeric| chaque entrée se voit attribuer un numéro, qui est appellé lorsque l'on renvoie à cee entrée.|
+|numeric| chaque entrée se voit attribuer un numéro, qui est appellé lorsque l'on renvoie à cette entrée.|
 |authortitle| sont indiqués seulement l'auteur et le titre de l’œuvre|
 |verbose| la description complète de l’entrée est donnée la première fois, une version abrégée est affichée ensuite.|
 |verbose-ibid| Comme verbose, mais avec l’abréviation *ibidem*|
@@ -553,34 +583,6 @@ Installation:
 
 
 
-## Créer ses commandes et environnements (1)
-
-### Syntaxe pour créer une commande
-
--  `\newcommand{#1}[#2]{#3}`. `#1`= nom de la commande; `#2`=nombre d'arguments de la nouvelle commande; `#3`= code de la nouvelle commande
-- Les commandes doivent être créées dans le préambule.
-
-- Syntaxe pour créer une commande avec argument optionel, grâce au package `xargs`:
-
-- `\newcommandx{#1}[#2][#3]{#4}` `#1`=nom de la commande; `#2`= nombre d'arguments; `#3`=liste des arguments optionnels (liste de numéros indiquant la position des arguments optionnels dans la commande). Une  valeur par défaut peut être attribuée aux arguments optionnels, consulter le manuel de `xarg`; `#4`= le code
-
-- Tester si un argument est vide grâce au packet `etoolbox`: utiliser la commande `\ifstrempty{#1}{#2}{#3}`. `#1`=la chaine de caractères que l'on va tester (ça peut être un argument de notre ouvelle commande, par exemple `#1`); `#2`=ce qui se passe si la chaine est vide; `#3`=ce qui se passe sinon.
-
-### Syntaxe pour créer un environnement
-
--`\newenvironment{#1}[#2]{#3}{#4}`. `#1`= nom de l'environnement; `#2`=nombre d'arguments du nouvel environnement; `#3`= code appelé à l'ouverture de l'environnement; `#4` = code appelé à la fermeture de l'environnement
-
-- Pour créer un environnement avec arguments optionnels, utilisez le package `xargs`
-
-
-- **nb** Il n'est pas possible d'appeler l'argument du nouvel environnement dans la *dernière partie* de la commande `newenvironment` (celle qui indique le code qui sera appelé à la fermeture de l'environnement). Il faut:
--  créer une "boite de sauvegarde" en mettant, avant la définition du nouvel environnement, `\newsavebox{\boite}` (on peut bien sûr donner un autre nom à la boite). 
-- Dans le code appelé à l'ouverture du nouvel environnement, mettre l'argument dans cette boite, par exemple: `\savebox{\boite}{#1}`
-- Dans le code appelé à la fermeture de l'environnement, on peut utiliser cette boite (et donc le contenu de l'argument) en utilisant: `\usebox{\boite}`.
-- Pour des exemples d'utilisation, voir l'ouvrage de LOZANO, Vincent, cité plus haut et mis dans la biliographie.
-
-
-
 # Les éléments non textuels
 
 ## Les flottants
@@ -601,8 +603,7 @@ Installation:
 |t|positionne le flottant en haut d'une page|
 |b|positionne le flottant en bas d'une page|
 |p|positionne le flottant sur une page dédiée aux flottants|
-
-- **nb** Pour éviter que le flottant n'aille trop loin de l'endroit où on l'a appelé, utiliser la commande `\FloatBarrier` du package `placeins`:  tous les floants appelés avant la commande sont placés avant celle-ci.
+- **nb** Pour éviter que le flottant n'aille trop loin de l'endroit où on l'a appelé, utiliser la commande `\FloatBarrier` du package `placeins`:  tous les flottants appelés avant la commande sont placés avant celle-ci.
 - Le  package `wrapfig` permet de mettre du texte autour du flottant (voir le manuel)
 
 
@@ -610,7 +611,7 @@ Installation:
 
 ## Insérer une image
 
-- Pour insérer une image, il faut utiliser la commande  `\includegraphics[⟨options⟩]{⟨chemin de l’image⟩}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
+- Pour insérer une image, il faut utiliser la commande  `\includegraphics[options]{chemin de l’image}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
 - L'environnement `landscape` du package  `lscape` permet de mettre l'image (ou tout autre élément: tableau, texte) en format paysage.
 - le package `adjustbox` permet d'ajuster l'image (ou tout autre flottant) à la taille de la page; voir le manuel
 
@@ -857,9 +858,9 @@ Exemple;  `\addtocounter{ex}{1}`: on ajoute 1 au compteur "ex".
 - Afficher la valeur actuelle du compteur: `\theNom_du_compteur`. Exemple; `\theex`
 affichera la valeur du compteur `ex`
 - autres façon d'afficher la valeur du compteur: 
-   + `\roman{ex}` affichera la valeur du compteur "ex" en  nombre romains minuscules  
-   + `\Roman{ex}` affichera la valeur du compteur "ex" en nombre romains majuscules` 
-   + `\alph{ex}` affichera la valeur du compteur "ex" en lettres minuscules   
+   + `\roman{ex}` affichera la valeur du compteur "ex" en  nombre romains minuscules
+   + `\Roman{ex}` affichera la valeur du compteur "ex" en nombre romains majuscules`
+   + `\alph{ex}` affichera la valeur du compteur "ex" en lettres minuscules 
    + `\Alph{ex}` affichera la valeur du compteur "ex" en lettres majuscules 
 
 - Exemple d'utilisation de compteur dans un nouvel environnement:
@@ -891,4 +892,108 @@ Un second exemple
 	+ appeler dans le document "maître" ces documents "enfants" avec la commande `\input{}` en indiquant le chemin relatif (par exemple: `\input{./frontmatter/section1.tex}` où le point indique l'emplacement du document maître et chaque `/` le passage à un autre dossier-enfant)
 - Compiler le document maître. **nb** Avec TexStudio, il est possible de déclarer un document comme document maître: Option - Document maître - déclarer le document en cours comme document maître explicite. Cela permet ensuite de compiler directement depuis les fichiers enfants (du moment qu'ils sont bien appelés dans le document maître)
 - Autre possibilité: garder l'option "détecter automatiquement le document maître". On pourra compiler depuis n'importe quel fichier appelé dans le document maître, du moment que celui-ci a aussi été ouvert une première fois
+
+
+# "Trucs" et ressources utiles
+
+
+## Quelques *packages* 
+
+Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](https://www.ctan.org/) (The Comprehensive TeX Archive Network). Je vous propose ici une liste (non-exhaustive)  de quelques packages qui pourraient vous servir.
+
+|Package|Usage|
+|-- |-- |
+|`adjustbox`|Adapter au mieux la taille d'un flottant|
+|`biblatex`|Bibliographie|
+|`biblatex-manuscripts-philology`|Décrire dans une base bibliographique des manuscripts|
+|`biblatex-multiple-dm`|Pouvoir utiliser plusieurs modèles de données avec `biblatex`|
+|`bibleref-french`|Références bibliques (français)|
+|`csquotes`|Gérer les guillemets|
+|`endnote`|Créer des notes de fin|
+|`enumitem`|Modifier l'apparence des listes|
+|`etoolbox`|Commandes LaTeX remplaçant des commandes TeX (difficulté +++ ; pour ceux qui aiment programmer!). Comporte des commandes pour des instructions de type if... then.. else|
+|`fancyhdr`[Personnaliser la mise en page|Améliorer l'environnement `tabular`: indiquer par exemple la taille des colonnes`|
+|`framed`|Encadrer, surligner,... du texte|
+|`geometry`|Modifier la géométrie de la page (marges)|
+|`graphicx`|Insérer des images, manipuler des boites (rotation,...)|
+|`hyperref`|Hyperliens. (Appel du package à mettre à la fin; amélioré si utilisé avec `bookmark`)|
+|`ifthen`|Commandes pour écrire une instruction if then else. Moins pratique que les commandes du package `etoolbox`, mais plus simple à comprendre|
+|`indextools`|Faire un ou plusieurs index (fork de `imakeidx`)|
+|`lettrines`|Insérer des lettrines|
+|`lscape`|Pour inclure des pages en format paysage|
+|`pdflscape`|Inclure des pdf en format paysage|
+|`perpage`|Faire redémarrer un compteur à chaque page|
+|`pgf-pie`|Faire un diagramme "camembert"|
+|`minted`|Colorer des citations de code informatique (attention, nécessite une compilation en ligne de commande avec une option: voir le manuel, section 3.1)|
+|`multicol`|Mettre un texte sur plusieurs colonnes|
+|`pict2e`|Tracer des dessins|
+|`placeins`|Mettre une barrière aux flottants|
+|`reledmac`|Éditions critiques|
+|`reledpar`|Vis-à-vis (avec `reledmac`)|
+|`setspace`|Modifier l'interligne|
+|`tikz`|Faire des schémas|
+|`verse`|Citer des vers|
+`wrapfig`|Mettre du texte autour de flottants|
+|`xargs`|Créer commandes et environnements avec plusieurs arguments optionnels|
+|`xcolor`|Mettre de la couleur|
+|`xspace`|Insérer un espace sauf avant certains signes de ponctuation|
+
+
+
+## Quelques messages d'erreurs courants
+
+- `!Emergency stop` suivi de `(job aborted, no legal \end found`: il manque `\end{document}`
+- `! LaTeX Error: Missing \begin{document}`: il y a du texte dans le préambule (en dehors des définitions et des appels de package)
+- `!Undefined control sequence`: la commande n'existe pas - son nom est mal tapé, ou le package qui la définit n'a pas été chargé
+- `LaTeX Error: \begin{<nom>} on input line 8 ended by \end{document}`: l'environnement n'a pas été fermé
+- `! LaTeX Error: \begin{<nom1>} on input line 9 ended by \end{<nom2>}`: deux environnements se superposent, ou un environnement est fermé par la balise d'un autre environnement
+- `! File ended while scanning use of \<nom de la commande>`: on a oublié l'accolade fermant la commande .
+- `! LaTeX Error: Command \<nom> already defined` : on a essayé de définir une nouvelle commande ou un nouvel environnement en lui donnant le nom d'une commande ou d'un environnement existants.
+- `! File ended while scanning use of \@argdef`: une accolade n'est pas fermée dans la définition d'une nouvelle commande
+- `! File ended while scanning use of \@newenv`:  une accolade n'est pas fermée dans la définition d'un nouvel environnement
+- `! Missing number, treated as zero`: on a appelé un argument dans la définition d'une nouvelle commande ou d'un nouvel environnement, sans indiquer en option qu'il y aurait un argument
+- `! Illegal parameter number in definition of \<nom>`: on appelle, dans la définition d'une nouvelle commande ou d'un nouvel environnement, un argument d'un nombre plus élevé que le nombre d'argument indiqué en option
+- ` Missing $ inserted`: on a tapé une commande mathématique sans la mettre entre les symboles `$`.
+- `Nested note`: une `footnote` dans une autre.
+ 
+
+
+
+## (Très courte) bibliographie
+
+ROUQUETTE, Maïeul, [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
+
+FRANC, Jean-Pierre, [TikZ, dessiner avec LaTeX](https://sbb169ee77282477c.jimcontent.com/download/version/1454697202/module/10275560298/name/TikZ-Manuel.pdf),
+
+
+KARNAJ, [Zeste de savoir. Présenter du code source dans un document LaTeX](https://zestedesavoir.com/tutoriels/pdf/1848/presenter-du-code-source-dans-un-document-latex.pdf)
+
+LOZANO, Vincent, [Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander](https://archives.framabook.org/docs/latex/framabook5_latex_v1_art-libre.pdf)
+
+OETIKER, Tobias, [Une courte (?) introduction à LaTeX](http://tug.ctan.org/tex-archive/info/lshort/french/lshort-fr.pdf)
+
+TISSEAU, Gérard et DUMAS, Jacque, [TikZ pour l'impatient](http://math.et.info.free.fr/TikZ/bdd/TikZ-Impatient.pdf)
+
+
+## Autres ressources
+
+[Geekographie maïeulesque](https://geekographie.maieul.net/)
+
+[Les fiches à Bébert](https://lesfichesabebert.fr/TeX/TeX.html)
+
+## Trouver de l'aide
+
+### Forums francophones
+
+[Developpez.com](https://www.developpez.net/forums/f149/autres-langages/autres-langages/latex/)
+
+[TeXnique](https://texnique.fr/osqa/)
+
+### Forums anglophones
+
+[Latex Community](https://latex.org/forum/)
+
+[StackExchange](https://tex.stackexchange.com/search?q=)
+
+
 
