@@ -8,12 +8,14 @@ Vous trouverez sur ce dépôt le contenu pédagogique du cours *LaTeX et la réd
 
 | Date | Horaires | Programme |
 | ---- | -------- | --------- |
-| 16 octobre 2024  | 13h-15h | Notions de base|
-| 23 octobre 2024 | 13h-15h | Mettre en forme, mettre en sens |
-| 6 novembre 2024 | 13h-15h | Les éléments non textuels    |
-| 19 novembre 2024     | 13h-15h  | Gérer sa bibliographie |
-|19 mars 2025|13h-15h|Rédiger un mémoire en LaTeX|
+| 16 octobre 2024  | 13h15-15h15 | Notions de base|
+| 23 octobre 2024 | 13h15-15h15 | Mettre en forme, mettre en sens |
+| 6 novembre 2024 | 13h15-15h15 | Les éléments non textuels    |
+| 19 novembre 2024     | 13h15-15h15  | Gérer sa bibliographie |
+|19 mars 2025|13h15-15h15|Rédiger un mémoire en LaTeX|
 
+
+Les cours ont lieu au campus Condorcet, salle Édith Thomas.
 ## Installation de LaTeX (sur Linux)
 
 ### 1/ Pré-requis
