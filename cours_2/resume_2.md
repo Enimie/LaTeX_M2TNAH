@@ -10,7 +10,7 @@
 |`\marginpar{#1}`|Note marginale|
 
 - L'apparence du numéro dans la note de bas de page peut être modifiée avec `polyglossia`. Mettre  à la commande `\setmainlanguage{french}`, dans l'argument optionnel, l'option `frenchfootnote=true`
-
+- Ceci n'est pas nécessaire si on utilise le package `babel`
 
 ### Listes
 
@@ -25,12 +25,13 @@
 - Si l'on met un argument optionnel à `\item`, on peut modifier ponctuellement le label (l'élément précédant l'entrée dans la liste: tiret, point,...)
 
 - Pour modifier sur l'ensemble du document le label des environnements `itemize`:  mettre  à la commande `\setmainlanguage{french}` l'option `[frenchitemlabels=true]{french}` pour obtenir un cadratin; pour choisir le label, ajouter ensuite comme option `itemlabels= ` avec le label choisi. 
-- Exemple: `\setmainlanguage[frenchitemlabels=true, itemlabels=\textendash]{french}` pour obtenir un demi-cadratin.
+- Exemple: `\setmainlanguage[frenchitemlabels=true, 
+itemlabels=\textendash]{french}` pour obtenir un demi-cadratin.
+- **nb** si l'on utilise le package `babel` plutôt que `polyglossia`, les items sont déjà des cadratins
 
 - Pour modifier le label d'un environnement `enumerate` donné, il faut utiliser le package `enumerate`. 
-Exemple: `\begin{enumerate}[label=(\Roman*)]` pour numéroter la liste en chiffres romains entre parenthèses. 
-Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en majuscules), `roman*` (chiffres romains en minuscule), `\Roman*` (chiffres romains en majuscule). 
--**nb**: La commande de compteur (`\alph*`, etc) ne doit pas directement être accolée au signe =
+Exemple: `\begin{enumerate}[(I)]` pour numéroter la liste en chiffres romains entre parenthèses; `\begin{enumerate}[exemple 1:]` pour faire précéder chaque item de `exemple` suivi du numéro et de deux points.
+Compteurs possibles: `a` (lettres de l'alphabet), `A` (lettres en majuscules), `i` (chiffres romains en minuscule), `I` (chiffres romains en majuscule), `1` (chiffres arabes, par défaut). 
 
 ### Les citations
 
@@ -41,7 +42,7 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 |`quotation`|Citation sur plusieurs paragraphes|
 |`\textelp{}` (requiert le package `csquotes`)|Indiquer une citation tronquée. Si l'argument est vide: met simplement des points de suspension|
 |`\textins{#1}` (requiert le package `csquotes`)|Indiquer une modification de la citation|
-|`\url{#1}`|Créer un lien vers une URL|
+|`\url{#1}`|Créer un lien vers une URL. Utiliser le package `hyperref` pour avoir un lien cliquable (à charger EN DERNIER) pour éviter des problèmes de compatibilité avec d'autres package|
 |`verse` (requiert le package `verse`|Pour citer des vers. Voir le manuel|
 
 
@@ -107,8 +108,10 @@ Compteurs possibles: `\alph*` (lettres de l'alphabet), `\Alph*` (lettres en maju
 |`\noindent`|Pas d'indentation au début du paragraphe|
 |`\par`|Nouveau paragraphe (à utiliser dans la définition de commandes ou d'environnements)|
 
-**nb**: `\newpage` va mettre tout l'espace disponible restant en bas de la page; `\pagebreak` va répartir cet espace sur la page. Pour cette raison, `\newpage` vous sera plus utile.
+**nb**: 
 
+- `\newpage` va mettre tout l'espace disponible restant en bas de la page; `\pagebreak` va répartir cet espace sur la page. Pour cette raison, `\newpage` vous sera plus utile.
+- `\newline` ou `\\`, de même que `\par`, sont à réserver pour la définition de commandes ou d'environnement, et ne doivent qu'exceptionnellement être utilisé dans le corps du texte. Ces commandes **ne doivent pas être utilisées**  pour créer des paragraphes au cours de la phrase (il suffit de laisser une ligne blanche!) , car elles peuvent provoquer des problèmes de répartition di blanc dans la page. 
 
 ### Encadrer du texte en le mettant dans des boites
 
