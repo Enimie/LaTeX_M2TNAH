@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\title{Un titre}%Il manquait un titre
+\author{Bibi}%Même si cela n'entraîne pas d'erreur de compilation, la commande \author était en commentaire.
+
+\begin{document}
+	\maketitle
+%\chapter{Cherchez l'erreur!}Il ne peut pas y avoir de chapitre dans la classe article
+
+\begin{abstract}
+La rédactrice de ce document \LaTeX{} a dissimulé sept erreurs; saurez-vous les repérer en vous aidant du fichier .log? 
+
+Corrigez le document jusqu'à obtenir une compilation sans erreur, en indiquant au moyen d'un commentaire ce que vous avez modifié.
+\end{abstract}%l'environnement abstract n'était pas fermé
+
+\section*{Introduction}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit,
+vestibulumut, placerat ac, adipiscing vitae, felis. Curabitur dictumgravida
+mauris. Namarcu libero, nonummy eget, consectetuer id, vulputate a, ma-
+gna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique
+senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras
+viverra metus rhoncus sem. Nulla et lectus vestibulumurna fringilla ultrices.
+Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, ia-
+culis in, pretiumquis, viverra ac, nunc. Praesent eget semvel leo ultrices
+bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget
+orci sit amet orci dignissimrutrum.
+
+\section{Première partie}%Pas de majuscule à la commande \section
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor loremnonjusto. Namlacus libero, pretiumat, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mol-
+lis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cumsociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Aliquamtincidunt urna. Nulla ullamcorper vestibulumturpis. Pellentesque
+cursus luctus mauris.
+
+\subsection{Une sous-partie}
+Nulla malesuada porttitor diam. Donec felis erat, congue non, volut-
+pat at, tincidunt tristique, libero. Vivamus viverra fermentumfelis. Donec
+nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermen-
+tummassa ac quam. Sed diamturpis, molestie vitae, placerat a, molestie
+nec, leo. Maecenas lacinia. Namipsumligula, eleifendat, accumsannec, sus-
+cipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat
+lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna.
+Integer non enim. Praesent euismod nunc eu purus. Donec bibendumquam
+in tellus. Nullamcursus pulvinar lectus. Donec et mi. Namvulputate metus
+eu enim. Vestibulumpellentesque felis eu massa.
+
+\subsection{Une autre sous-partie} %l'accolade de fin manquait
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae
+lacus tincidunt ultrices. Loremipsumdolor sit amet, consectetuer adipiscing
+elit. Inhac habitasse platea dictumst. Integer tempus convallis augue. Etiam
+facilisis. Nunc elementumfermentumwisi. Aenean placerat. Ut imperdiet,
+enimsedgravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus
+eget enim. Nunc vitae tortor. Prointempus nibh sit amet nisl. Vivamus quis
+tortor vitae risus porta vehicula.
+
+\end{document}%il manquait cette ligne
