@@ -1,6 +1,30 @@
 # Cours 3 - Approfondissements: Éléments non textuels; édition de texte
 
 
+## Créer ses commandes et environnements (2)
+
+### Syntaxe pour créer une commande ou un environnement avec argument optionnel
+
+
+- Syntaxe pour créer une commande avec argument optionel, grâce au package `xargs`:
+
+- `\newcommandx{#1}[#2][#3]{#4}` `#1`=nom de la commande; `#2`= nombre d'arguments; `#3`=liste des arguments optionnels (liste de numéros indiquant la position des arguments optionnels dans la commande). Une  valeur par défaut peut être attribuée aux arguments optionnels, consulter le manuel de `xarg`; `#4`= le code
+
+- Pour créer un environnement avec arguments optionnels, utilisez le package `xargs`
+
+
+
+- Tester si un argument est vide grâce au packet `etoolbox`: utiliser la commande `\ifstrempty{#1}{#2}{#3}`. `#1`=la chaine de caractères que l'on va tester (ça peut être un argument de notre ouvelle commande, par exemple `#1`); `#2`=ce qui se passe si la chaine est vide; `#3`=ce qui se passe sinon.
+
+### Appeler un argument dans la dernière partie d'un nouvel environnement
+
+
+-  Il n'est pas possible d'appeler l'argument du nouvel environnement dans la *dernière partie* de la commande `newenvironment` (celle qui indique le code qui sera appelé à la fermeture de l'environnement). Il faut:
+-  créer une "boite de sauvegarde" en mettant, avant la définition du nouvel environnement, `\newsavebox{\boite}` (on peut bien sûr donner un autre nom à la boite). 
+- Dans le code appelé à l'ouverture du nouvel environnement, mettre l'argument dans cette boite, par exemple: `\savebox{\boite}{#1}`
+- Dans le code appelé à la fermeture de l'environnement, on peut utiliser cette boite (et donc le contenu de l'argument) en utilisant: `\usebox{\boite}`.
+- Pour des exemples d'utilisation, voir l'ouvrage de LOZANO, Vincent, cité plus haut et mis dans la biliographie.
+
 ## Les éléments non textuels
 
 ### Les flottants 
@@ -109,3 +133,75 @@ Pour des exemples, voir les exercices.
 
 
 
+## Les packages  `reledmac` et `reledpar` pour l'édition critique
+
+### reledmac
+
+1. Pour numéroter les  lignes:  
+```
+\beginnumbering  
+ \pstart
+Le texte à numéroter
+ \pend
+ \endnumbering
+``` 
+ 
+ Pour que chaque paragraphe soit automatiquement mis entre les balises `\pstart`et `\pend`, il faut mettre `\autopar` au début du texte et terminer le texte par une ligne blanche ou la commande `\par`
+ 
+ ```
+\beginnumbering  
+ \autopar
+premier paragraphe
+
+deuxième paragraphe
+
+etc
+ 
+ \endnumbering
+``` 
+ 
+ 
+Pour configurer la numérotation, voir le manuel; idem pour la syntaxe des vers. Voir aussi le chapitre 20 de l'ouvrage   [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
+
+Dans le cas de vers, nous aurons: 
+
+```
+\beginnumbering
+ \stanza
+un vers.&
+le dernier vers de la strophe\&
+ \endnumbering
+``` 
+
+
+2. Apparat critique: 
+- les "familiar notes":`\footnoteA{#1},\footnoteB{#1}`, etc (cinq niveaux, jusqu') `\footnoteE`
+- les "critical notes" (sans appel de note, mais avec, dans  la note, le numéro de ligne ou de vers et un lemme, c'est-à-dire le morceau de texte pour lequel on indique des variantes): :`\Afootnote{#1},\Bfootnote{#1}`, etc (cinq niveaux, jusqu') `\Efootnote`
+- les notes de fin (`\Aendnote{#1}`, etc, jusqu'à `\Eendnote`)
+
+- Pour faire une note critique (avec lemme): `\edtext{#1}{#2}`, où `#1`= le mot qui va apparaître comme lemme, et `#2`= la "critical note". 
+
+Pour des exemples, voir les exercices.
+
+### reledpar
+
+- à charger avec `reledmac`. Sert à mettre deux textes en vis-à-vis. Syntaxe:
+
+```
+\begin{pages} %Mettre en vis-à-vis sur deux pages
+	\begin{Leftside}
+Texte de gauche
+	\end{Leftside}
+
+	\begin{Rightside}
+	Texte de droite
+\end{Rightside}
+\end{pages}
+\Pages %imprimer le vis-à-vis
+```
+
+- Pour avoir un vis-à-vis en colonnes, remplacer l'environnement `pages` par `pairs` et la commande `\Pages` par `\Columns`
+
+- Le package `reledpar` fait correspondre en vis-à-vis chaque "boîte" d’un texte à la boîte correspondante de l’autre texte : il faut donc qu’il y ait le même nombre de boîtes des deux côtés. 
+- Pour la poésie, chaque vers est une boîte
+- en prose, les boîtes sont délimitées par `\pstart` et `\pend`.
