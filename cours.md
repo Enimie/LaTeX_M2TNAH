@@ -706,10 +706,25 @@ Le texte à numéroter
  \pend
  \endnumbering
 ``` 
- 
-Pour configurer la numérotation, voir le manuel; idem pour la syntaxe des vers. Voir aussi le chapitre 20 de l'ouvrage   [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
 
-Dans le cas de vers, nous aurons: 
+- Pour que chaque paragraphe soit automatiquement mis entre les balises `\pstart`et `\pend`, il faut mettre `\autopar` au début du texte et terminer le texte par une ligne blanche ou la commande `\par`: 
+```latex
+\beginnumbering  
+ \autopar
+premier paragraphe
+
+deuxième paragraphe
+
+etc
+
+ \endnumbering
+``` 
+
+
+
+- Pour configurer la numérotation, voir le manuel; idem pour la syntaxe des vers. Voir aussi le chapitre 20 de l'ouvrage   [XeLaTeX appliqué aux sciences humaines](https://halshs.archives-ouvertes.fr/halshs-00924546)
+
+- Dans le cas de vers, nous aurons: 
 
 ```latex
 \beginnumbering
