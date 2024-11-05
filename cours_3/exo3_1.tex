@@ -7,6 +7,7 @@
 
 
 \usepackage{graphicx}%insérer des images
+\usepackage{adjustbox}%ajuster facilement la taille des images
 \usepackage{lscape}%mettre en format paysage
 \usepackage{tikz}%faire des graphiques
 
@@ -16,17 +17,21 @@
 %\pgfplotstableset{%
 %	assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},%quand on importe un tableau, le titre des colonnes apparaît en gras
 %	column type=l}%et les colonnes sont alignées à gauche
+
 \begin{document}
 	
 \section{Insérer des flottants}
 \subsection{Images}
 
 %1/Insérez ici l'image genealogie.jpg graĉe à \includegraphics (RQ: Source de l'image: https://books.openedition.org/efr/2282)
-%2/Modifiez l'échelle de li'mage pour que ce soit satisfaisant
-%3/ Transformez l'image en flottant avec l'environnement figure. Indiquez où positionner le flottant.
-%4/Ajoutez-lui une légende, ainsi que la source, qui se trouve ici: https://books.openedition.org/efr/2282. La
-%5/ Faites-la tourner au format paysage
-%6/ A la fin du document, insérez une liste des figures
+%2/Modifiez l'échelle de l'image pour que ce soit satisfaisant
+%3/testez les modifications d'échelle en remplaçant par \adjincludegraphics 
+%4/ Transformez l'image en flottant avec l'environnement figure. Indiquez où positionner le flottant.
+%5/Ajoutez-lui une légende, ainsi que la source, qui se trouve ici: https://books.openedition.org/efr/2282. La
+%6/ Enlever les modifications d'échelle et faites-la tourner au format paysage
+%7/ A la fin du document, insérez une liste des figures
+
+
 
 
 \subsection{Tableaux}
@@ -36,6 +41,7 @@
 %3/ Faites un autre tableau en choisissant pour les colonnes, dans l'option 'alignement', une des possibilités de 'largeur fixée'. Modifiez ensuite la largeur
 %4/Transformer vos tableaux en flottant grâce à l'environnement table, et insérez une légende.
 %5/ imprimez à la fin du document la liste des tableaux
+
 
 \subsection{Faire des graphiques avec tikz}
 
