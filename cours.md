@@ -601,10 +601,12 @@ Installation:
 
 |valeur|effet|
 |-- |-- |
-|h|positionne le flottant à l'emplacement de son appel|
+|h|positionne le flottant à peu près à l'emplacement de son appel|
 |t|positionne le flottant en haut d'une page|
 |b|positionne le flottant en bas d'une page|
 |p|positionne le flottant sur une page dédiée aux flottants|
+
+- Les valeurs peuvent être combinées. Je consielle d'utiliser  `htb`
 - **nb** Pour éviter que le flottant n'aille trop loin de l'endroit où on l'a appelé, utiliser la commande `\FloatBarrier` du package `placeins`:  tous les flottants appelés avant la commande sont placés avant celle-ci.
 - Le  package `wrapfig` permet de mettre du texte autour du flottant (voir le manuel)
 
@@ -906,6 +908,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |Package|Usage|
 |-- |-- |
 |`adjustbox`|Adapter au mieux la taille d'un flottant|
+|`array`|améliorer les tableaux|
 |`biblatex`|Bibliographie|
 |`biblatex-manuscripts-philology`|Décrire dans une base bibliographique des manuscripts|
 |`biblatex-multiple-dm`|Pouvoir utiliser plusieurs modèles de données avec `biblatex`|
@@ -914,7 +917,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`endnote`|Créer des notes de fin|
 |`enumitem`|Modifier l'apparence des listes|
 |`etoolbox`|Commandes LaTeX remplaçant des commandes TeX (difficulté +++ ; pour ceux qui aiment programmer!). Comporte des commandes pour des instructions de type if... then.. else|
-|`fancyhdr`[Personnaliser la mise en page|Améliorer l'environnement `tabular`: indiquer par exemple la taille des colonnes`|
+|`fancyhdr`|Personnaliser la mise en page|
 |`framed`|Encadrer, surligner,... du texte|
 |`geometry`|Modifier la géométrie de la page (marges)|
 |`graphicx`|Insérer des images, manipuler des boites (rotation,...)|
