@@ -1,0 +1,67 @@
+\documentclass{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\usepackage{reledmac}%Faire une édition critique
+\usepackage{reledpar}%Mettre deux textes en vis-à-vis
+
+\renewcommand*{\thefootnoteB}{\alph{footnoteB}} %Pour changer l'apparence de la footnote. 
+
+\begin{document}
+	
+
+%5/ Mettre le texte dans un environnement Leftside (attention à la majuscule), et sa (pseudo)traduction (décommentée) dans un environnement Rightside; puis mettre tout ça dans un environnement pages, et ajoutez après cet environnement la commande \Pages
+%6/ Transformez pages en pairs, et \Pages en \Columns
+
+
+\begin{pages}
+	\begin{Leftside}
+			\beginnumbering
+	\numberpstarttrue
+	 \autopar	 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulumut, placerat ac, adipiscing vitae, felis.
+ Curabitur dictum gravida mauris.
+ Namarcu libero, nonum eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+ Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulumurna fringilla ultrices.
+
+
+Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretiumquis, viverra ac, nunc. Praesent eget semvel leo ultrices
+bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget
+orci sit amet orci dignissimrutrum.
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor loremnonjusto. Namlacus libero, pretiumat, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mol-
+lis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cumsociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Aliquamtincidunt urna. Nulla ullamcorper vestibulumturpis. 
+
+\endnumbering
+
+\end{Leftside}
+
+%Ici se trouve la traduction
+
+
+\begin{Rightside}
+		\beginnumbering
+\numberpstarttrue
+\autopar
+
+ Traduction du premier paragraphe. Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Loremipsumdolor sit amet, consectetuer adipis cingelit. Inhac habitasse platea dictumst. Integer tempus convallis augue.
+
+ Traduction du deuxièle paragraphe. Etiam acilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim.  
+
+Traduction du troisième paragraphe: Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl. Vestibulumdiam. Aliquampellentesque, augue quis sagittis posuere, turpis lacus congue quam, in hendrerit risus eros eget felis. 
+
+\endnumbering
+\end{Rightside}
+\end{pages}
+\Pages
+\end{document}
