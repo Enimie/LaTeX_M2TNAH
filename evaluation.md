@@ -15,14 +15,15 @@ Choix entre deux sujets:
 particularités, choix de modélisation, etc.
 	+ les choix que vous avez fait  pour produire cette édition en LaTeX (packages utilisés, éventuelles créations de commandes, etc).
 
-La date limite est le 31 mars 2024
+
 
 # Sujet 2 — Production d’un mémoire universitaire en LATEX
 
 - Votre mémoire de M2 sera évalué par rapport à votre utilisation de LaTeX.
 - Seront examinés: le ou les documents .tex et le document .pdf
-- Le mémoire sera produit à partir du document maître fourni
-- Il devra contenir au moins: 
+- Le mémoire sera produit à partir du document maître fourni. 
+- La compilation doit se faire sans erreurs.
+- ILe mémoire devra contenir au moins: 
 	+  une page de titre
 	+   deux chapitres
 	+  une bibliographie propre
@@ -30,8 +31,10 @@ La date limite est le 31 mars 2024
 - Au sein du document, il faudra produire :
 	+ au moins un tableau
 	+ au moins une figure ou un schéma
-	+ au moins une nouvelle commande, commentée
+	+ au moins une nouvelle commande, qui sera commentée
 	+ des paragraphes structurés, respectant les normes typographiques françaises.
-- Tout package appelé devra être brièvement présenté par un commentaire
+- Tout package appelé devra être brièvement présenté par un commentaire.
+- Les commandes et méthodes de base de LaTeX doivent être utilisées à bon escient
+- Tout élément montrant une appropriation personnelle de LaTeX est bienvenu.
 
-La date limite est le 4 septembre 2024
+
