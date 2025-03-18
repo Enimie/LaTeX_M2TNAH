@@ -1,14 +1,17 @@
 %Document vide aux normes de l'École nationale des Chartes
-%Dernières modifications E. Rouquette (12/2023)
+%crée par J.B. Camps
+%Dernières modifications E. Rouquette (03/2025)
 
 %%%%%%%%%%%%%%%%%%%%%% PRÉAMBULE
 
 
 %%%%%%%%%%%%%% partie obligatoire du préambule
-\documentclass[a4paper,12pt,twoside]{book}
+\documentclass[12pt,twoside]{book}
 \usepackage{fontspec}
 \usepackage{xunicode}
-\usepackage[french]{babel}%on peut préciser d'autres langues.
+\usepackage{polyglossia}
+\setmainlanguage{french}%indiquer la langue principale du document
+%\setotherlanguage{} %indiquer les autres langues utilisée
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES UTILISÉS
@@ -16,7 +19,7 @@
 \usepackage{csquotes} % les guillemets français
 \usepackage{lettrine} %faire une lettrine (pas obligatoire)
 
-\usepackage[style=enc,sorting=nyt,maxbibnames=10]{biblatex}%charger le style de l'EnC (téléchargeable ici https://ctan.org/pkg/biblatex-enc)
+\usepackage[style=biblatex-enc/enc,sorting=nyt,maxbibnames=10]{biblatex}%charger le style de l'EnC (téléchargeable ici https://ctan.org/pkg/biblatex-enc)
 \addbibresource{} %le fichier bibliograhique. Exemple de chemin à partir du dossier où se trouve le document maître:Exemple ./dossierA/fichier.bib
 %\defbibheading{}{\subsection*{}} Si l'on veut changer le titre de la/les bibliographie(s)
 
@@ -54,16 +57,39 @@
 \onehalfspacing % interligne de 1.5
 \setlength\parindent{1cm} % indentation des paragraphes à 1 cm
 
+
 %%%%% Mise en forme des headers (haut de page)
 
 \usepackage{fancyhdr} %package utilisé pour modifier les headers
 \pagestyle{fancy} %utiliser ses propres choix de mise en page et non ceux par défaut du package
 
 \setlength\headheight{16pt}%la hauteur des headers
+
+%%la façon dont les sections apparaissent dans les en-tête:
+
 \renewcommand{\sectionmark}[1]{\markright{\small\textit{\thesection~\  #1}}}%Faire apparaître dans les headers les sections en  petit et en italiques
-\renewcommand{\sectionmark}[1]{}%Commenter la lign précédetne et mettre celle-ci pour ne pas avoir le titre des sections dans le header
-\renewcommand{\chaptermark}[1]{\markboth{\small\chaptername~\thechapter~--\ \textit{#1}}{}}%idem pour les chapitres
+%\renewcommand{\sectionmark}[1]{}%Commenter la lign précédetne et mettre celle-ci pour ne pas avoir le titre des sections dans le header
+
+%% réglages propres à frontmatter
+
+\appto\frontmatter{\pagestyle{fancy}%
+	\renewcommand{\chaptermark}[1]{\markboth{\small\textit{#1}}{}}% ne pas faire apparaître de <<numéro>> de chapitre dans les chapitres non numérotés (front: l'introduction, els remerciement, etc)
+}
+
+%% réglages propres à mainmatter
+
+\appto\mainmatter{
+\renewcommand{\chaptermark}[1]{\markboth{\small\chaptername~\thechapter~--\ \textit{#1}}{}}%faire apparaître dans les headers les sections en  petit et en italiques
 %\renewcommand{\chaptermark}[1]{}%Commenter la ligne précédente et mettre celle-ci pour ne pas avoir le titre des chapitres  dans le header
+}
+
+%% réglages propres aux annexes
+
+\appto\appendix{
+	\renewcommand{\chaptermark}[1]{\markboth{\small~Annexe \thechapter~--\ \textit{#1}}{}}%faire apparaître dans les headers le nom des annexes
+	%\renewcommand{\chaptermark}[1]{}%Commenter la ligne précédente et mettre celle-ci pour ne pas avoir le titre des chapitres  dans le header
+}
+
 
 
 
@@ -74,6 +100,7 @@
 
 
 %%%%%%% Package hyperref
+
 % A mettre après les autres appels de packages car redéfinit certaines commandes).
 
 \usepackage[colorlinks=false, breaklinks=true, pdfusetitle, pdfsubject ={Mémoire HN}, pdfkeywords={les mots-clés}]{hyperref} %
@@ -124,7 +151,8 @@
 
 
  %%%%%%%%%%%%%% INFORMATIONS POUR LA PAGE DE TITRE
-\author{Prénom Nom - M2 TNAH}
+ 
+\author{Prénom \textsc{Nom} - M2 TNAH}
 \title{Titre du mémoire}
 
 %%%%%%%%%%%%%%%%%%%%%% DOCUMENT
@@ -176,7 +204,7 @@
 				pour le diplôme de master \\
 				\enquote{Technologies numériques appliquées à l'histoire} \\
 				\bigskip
-				2024
+				2025
 			\end{large}
 			
 		\end{center}
@@ -193,7 +221,7 @@
 	
 	\textbf{Mots-clés:} une liste de mots-clés~; séparés par des points-virgules.
 	
-	\textbf{Informations bibliographiques:} Prénom Nom, \textit{Titre du mémoire. Sous-titre du mémoire}, mémoire de master \enquote{Technologies numériques appliquées à l'histoire}, dir. [Noms des directeurs.trices], École nationale des chartes, 2024.
+	\textbf{Informations bibliographiques:} Prénom Nom, \textit{Titre du mémoire. Sous-titre du mémoire}, mémoire de master \enquote{Technologies numériques appliquées à l'histoire}, dir. [Noms des directeurs.trices], École nationale des chartes, 20245.
 	
 		\newpage{\pagestyle{empty}\cleardoublepage}
 	
@@ -207,7 +235,9 @@
 
 	
 \chapter{Introduction}	
-Mon introduction
+Mon introduction 
+%si l'introduction est longue, elle peut être importée avec input
+
 \newpage{\pagestyle{empty}\cleardoublepage}
 
 %%%%%%%%%%%%%%%%%Le corps du mémoire
@@ -219,7 +249,7 @@ Mon introduction
 	\part{Une partie}
 \chapter{Mon premier chapitre}
 %\input{exemple_section1.tex} %Input: importer un fichier
-%\input{ma_section2}
+
 
 %etc
 %Ou bien: ne pas mettre chapter, et importer le chapitre complet:
