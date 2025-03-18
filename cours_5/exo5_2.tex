@@ -1,12 +1,13 @@
-\documentclass[12pt,twoside]{book}
+\documentclass{book}
 \usepackage{fontspec}
 \usepackage{xunicode}
-%\usepackage{polyglossia}
-%\setmainlanguage{french}
-\usepackage[french]{babel}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\setotherlanguage{english}
+\usepackage[autostyle=true]{csquotes}%mettre des guillemets
 
 \usepackage{imakeidx}%pour faire un index
-\makeindex[intoc]%commande pour générer l'index
+\makeindex[intoc]%commande pour générer l'index et le faire apparaître dans la table des matières
 
 
 
@@ -43,6 +44,8 @@
 
 \section*{Objectifs de l'exercice}\addcontentsline{toc}{section}{Objectifs de l'exercices}
 \begin{enumerate}
+	\item indiquer des changements de langue
+% mettre le passage en anglais dans l'environnement adapté après déclaré l'anglais comme langue secondaire
   \item Apprendre à faire des renvois internes grâce à des labels
 % Placez un label \label{clef} dans l'environnement table, après caption, et un autre juste après le nom d'une section ou d'une subsection
 % Rour renvoyer au label: \pageref{clef} imprimera la page, \ref{clef} numéro de section/de figure; \nameref{clef} le  titre de la section ou du flottant.
@@ -76,19 +79,34 @@
 \section{Première partie}
 
 Élisabeth à Londres 
+\medskip
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit,
-vestibulumut, placerat ac, adipiscing vitae, felis. Curabitur dictumgravida
-mauris. Namarcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique
-senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras
-viverra metus rhoncus sem. Nulla et lectus vestibulumurna fringilla ultrices.
-Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, ia-
-culis in, pretiumquis, viverra ac, nunc. Praesent eget semvel leo ultrices
-bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
-mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget
-orci sit amet orci dignissimrutrum.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulumut, placerat ac, adipiscing vitae, felis.
+Curabitur dictum gravida mauris.
+Namarcu libero, nonum eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulumurna fringilla ultrices.
 
+
+\subsection{Exemple de passage en anglais}
+%Mettre ce passage dans l'environnement adapté
+
+
+	It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.
+
+However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.
+
+\enquote{My dear Mr. Bennet,} said his lady to him one day, \enquote{have you heard that Netherfield Park is let at last?}
+
+Mr. Bennet replied that he had not.
+
+
+\subsection{du lorem ipsum à nouveau}
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor loremnonjusto. Namlacus libero, pretiumat, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi.
 
 \begin{table}[h]
   \begin{center}
@@ -111,11 +129,7 @@ orci sit amet orci dignissimrutrum.
     \caption{Une déclinaison}
   \end{table}
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
-auctor loremnonjusto. Namlacus libero, pretiumat, lobortis vitae, ultricies
-et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
-magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mol-
-lis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cumsociis
+ Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cumsociis
 natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 Aliquamtincidunt urna. Nulla ullamcorper vestibulumturpis. Pellentesque
 cursus luctus mauris.
@@ -123,7 +137,7 @@ cursus luctus mauris.
 \section{Deuxième partie}
 
 Charlemagne à Aix
-
+\medskip
 
 Nulla malesuada porttitor diam. Donec felis erat, congue non, volut-
 pat at, tincidunt tristique, libero. Vivamus viverra fermentumfelis. Donec
