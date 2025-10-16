@@ -8,16 +8,18 @@ Vous trouverez sur ce dépôt le contenu pédagogique du cours *LaTeX et la réd
 
 | Date | Horaires | Programme |
 | ---- | -------- | --------- |
-| 16 octobre 2024  | 13h-15h | Notions de base|
-| 23 octobre 2024 | 13h-15h | Mettre en forme, mettre en sens |
-| 6 novembre 2024 | 13h-15h | Les éléments non textuels    |
-| 19 novembre 2024     | 13h-15h  | Gérer sa bibliographie |
-|19 mars 2025|13h-15h|Rédiger un mémoire en LaTeX|
+| 22 octobre 2025  | 11h-13h | Notions de base|
+| 4 novembre 2025 | 9h-11h | Mettre en forme, mettre en sens |
+| 10 décembre 2025 | 13h-15h | Les éléments non textuels    |
+| 16 février 2026     | 10h-12h  | Gérer sa bibliographie |
+|16 mars 2026|10h-12h|Rédiger un mémoire en LaTeX|
 
 
-Les cours ont lieu salle informatique sauf le 6 novembre (salle Giry)
+Les cours ont lieu salle informatique
 
 ## Installation de LaTeX (sur Linux)
+
+**Attention**: ne **PAS** installer LaTeX depuis les dépots linux (selon la méthode habituelle d'installation des paquets). Si vous avez déjà installé latex par le biais de `apt install`, il faut au préalable le désinstaller.
 
 ### 1/ Pré-requis
 
@@ -39,7 +41,7 @@ Une fois le fichier téléchargé, décompressez-le. Pour cela, double-cliquez d
 
 ### 3/ Installer la texlive
 
-1. Dans le terminal, placez-vous dans le dossier que vous avez décompressé par la commande `cd` suivie du nom du dossier (`install-tl-20241009`; le nombre peut être différent). Vous pouvez utiliser la touche Tab pour activer l'autocomplétion du nom du dossier.
+1. Dans le terminal, placez-vous dans le dossier que vous avez décompressé par la commande `cd` suivie du nom du dossier (`install-tl-20251016`; le nombre peut être différent). Vous pouvez utiliser la touche Tab pour activer l'autocomplétion du nom du dossier.
 2. Tapez `sudo perl install-tl`
 3. Si vous avez de la place sur votre ordinateur et une bonne connexion internet: répondez `i` ("start installation to hard disk"). **Cette option est à privilégier**
 4. Si votre connexion est mauvaise, ou que vous avez trop peu de place, vous pouvez au choix:
@@ -53,17 +55,17 @@ Il sera de toute façon possible d'installer plus tard ces collections si vous e
 
 Il ne reste plus qu'à configurer votre installation:
 
-1. Tapez dans le terminal  `sudo nano  ~/.profile`. Vous devrez ensuite taper votre mot de passe (qui reste invisible, c'est normal!)
+1. Tapez dans le terminal  `sudo nano  ~/.profile`. Vous devrez ensuite taper votre mot de passe (qui reste invisible, c'est normal!). Si vous n'avez pas nano, vous pouvez l'installer, ou ouvrir le fichier avec un autre logiciel, par exemple avec gnome-text-editor: `sudo gnome-text-editor  ~/.profile`
 2. Dans le fichier qui s'ouvre, ajoutez les lignes suivantes: 
 
 ```
-PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2024/texmf/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2024/texmf/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2025/texmf/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2025/texmf/doc/info:$INFOPATH; export INFOPATH
 ```
 
-3. Enregistrez le fichier, et tapez dans le terminal `source ~/.profile` pour que le changement soit pris en compte.
-4. Vérifiez que tout fonctionne en tapant `which xelatex` dans le terminal: vous devez avoir le chemin de la texlive 2024 qui s'affiche.
+3. Enregistrez le fichier, puis tapez dans le terminal `source ~/.profile` pour que le changement soit pris en compte.
+4. Vérifiez que tout fonctionne en tapant `which xelatex` dans le terminal: vous devez avoir le chemin de la texlive 2025 qui s'affiche.
 
 
 ### 5/ Installer un éditeur de texte (TexStudio)
@@ -96,8 +98,8 @@ particularités, choix de modélisation, etc.
 - Au sein du document, il faudra produire :
 	+ au moins un tableau
 	+ au moins une figure ou un schéma
-	+ au moins une nouvelle commande, commentée
+	+ au moins une nouvelle commande ou un nouvel environnement, commenté
 	+ des paragraphes structurés, respectant les normes typographiques françaises.
 - Tout package appelé devra être brièvement présenté par un commentaire
-
-
+- Les commandes et méthodes de base devront être utilisées à bon escient, et ne pas être remplacées par des méthodes moins efficaces
+- Toute appropriation personnelle de LaTeX sera valorisée.
