@@ -58,6 +58,7 @@
  Pour les autres options, voir le manuel.
 
 - L'environnement `landscape` du package  `lscape` permet de mettre l'image (ou tout autre élément: tableau, texte) en format paysage.
+- le package `pdgpages` permet d'insérer des pdf
 
 ### Insérer tableau
 

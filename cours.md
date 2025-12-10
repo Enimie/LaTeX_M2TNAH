@@ -615,9 +615,12 @@ Installation:
 
 ## Insérer une image
 
-- Pour insérer une image, il faut utiliser la commande  `\includegraphics[options]{chemin de l’image}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
+- Pour insérer une image, il faut utiliser la commande  `\includegraphics[options]{chemin de l’image}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée).
+On peut aussi indiquer la valeur de la largeur, de la hauteur, etc, par exemple `width=\textwidth`.
+
+ Pour les autres options, voir le manuel.
 - L'environnement `landscape` du package  `lscape` permet de mettre l'image (ou tout autre élément: tableau, texte) en format paysage.
-- le package `adjustbox` permet d'ajuster l'image (ou tout autre flottant) à la taille de la page; voir le manuel
+- le package `pdfpages` permet d'inclure des pdf
 
 ## Insérer tableau
 
@@ -627,10 +630,9 @@ Installation:
 	- Au sein d'une ligne: on indique un changement de colonne par le signe `&`, et la fin de la ligne par  `\\`
 	- Il est possible également d'indiquer la taille des colonnes. Voir par exemple le tutoriel ici:  
 [tabular](https://lataix-sebastien.developpez.com/tutoriels/latex/les-tableaux-sous-latex/), ou utiliser simplement l'assistant de Texstudio.
-
+- Pour personnaliser les tableaux ou faire des tableaux complexes, voir par exemple le package `tabularray`, qui permet de bien séparer fond et forme du tableau, tout en restant compatible avec la syntaxe de `tabular`
 
 - **nb** Il existe un package `longtable` permettant de faire des tableaux allant sur plusieurs pages et pouvant recevoir des notes de bas de page (`\footnote`).
-- Le package `tabbing` permet d'aligner du texte en colonne sans réellement faire de tableau. Il est parfois plus adapté que l'environnement `tabular` ; vous trouverez un tutoriel ici:[tabbing](https://latexref.xyz/fr/tabbing.html)
 
 
 
@@ -800,7 +802,7 @@ Texte de gauche
 - Les mots commençant par des caractères accentués sont mis en fin d'index. Pour résoudre les problèmes de tri avec les accents, indexer de cette façon: `\index{mot utilisé pour le tri dans l'index @ mot qui apparaîtra dans l'index}`
 - Exemple: `\index{Elisabeth@Élisabeth}` permettra de faire apparaître "Élisabeth" dans l'index à la lettre E
 - Il est possible de faire des subdivisions d'entrées: `\index{Empereur!Auguste}`, `\index{Empereur!Caligula}`
-- Faire des références croisées (qui appraîtront dans l'index sous la forme: "xx, *voir* yy'): `Bonaparte\index{Bonaparte|see{Napoléon}}\index{Napoléon}`.
+- Faire des références croisées (qui appraîtront dans l'index sous la forme: "xx, *voir* yy"): `Bonaparte\index{Bonaparte|see{Napoléon}}\index{Napoléon}`.
 - Faire apparaître l'index dans la table des matières: mettre l'option `intoc` à la commande  `\makeindex`: `\makeindex[intoc]`
 
 - **rq**: la création d'index génère des fichiers auxiliares `.idx`, `.ilg` et `.ind`
@@ -942,6 +944,7 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`lettrines`|Insérer des lettrines|
 |`lscape`|Pour inclure des pages en format paysage|
 |`pdflscape`|Inclure des pdf en format paysage|
+|`pdfpages`|Insérer des pdf|
 |`perpage`|Faire redémarrer un compteur à chaque page|
 |`pgf-pie`|Faire un diagramme "camembert"|
 |`minted`|Colorer des citations de code informatique (attention, nécessite une compilation en ligne de commande avec une option: voir le manuel, section 3.1)|
@@ -951,9 +954,10 @@ Vous pouvez chercher des packages adaptés à vos besoins sur le site du [CTAN](
 |`reledmac`|Éditions critiques|
 |`reledpar`|Vis-à-vis (avec `reledmac`)|
 |`setspace`|Modifier l'interligne|
+|`tabularray`|Faire des tableaux complexes|
 |`tikz`|Faire des schémas|
 |`verse`|Citer des vers|
-`wrapfig`|Mettre du texte autour de flottants|
+|`wrapfig`|Mettre du texte autour de flottants|
 |`xargs`|Créer commandes et environnements avec plusieurs arguments optionnels|
 |`xcolor`|Mettre de la couleur|
 |`xspace`|Insérer un espace sauf avant certains signes de ponctuation|
