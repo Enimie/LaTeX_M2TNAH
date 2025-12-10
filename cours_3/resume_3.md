@@ -54,7 +54,9 @@
 
 ### Insérer une image 
 
-- Pour insérer une image, il faut utiliser la commande  `\includegraphics[⟨options⟩]{⟨chemin de l’image⟩}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). Pour les autres options, voir le manuel.
+- Pour insérer une image, il faut utiliser la commande  `\includegraphics[⟨options⟩]{⟨chemin de l’image⟩}` du package `graphicx`. Pour régler la taille de l'image, indiquer dans l'argument optionnel `scale=xx` où xx est une valeur numérale (au-dessus de 1: l'image est agrandie; en dessous de 1, elle est diminuée). On peut aussi indiquer la valeur de la largeur, de la hauteur, etc, par exemple `width=\textwidth`.
+ Pour les autres options, voir le manuel.
+
 - L'environnement `landscape` du package  `lscape` permet de mettre l'image (ou tout autre élément: tableau, texte) en format paysage.
 
 ### Insérer tableau
@@ -65,6 +67,7 @@
 	- Au sein d'une ligne: on indique un changement de colonne par le signe `&`, et la fin de la ligne par  `\\`
 	- Il est possible également d'indiquer la taille des colonnes. Voir par exemple le tutoriel ici:  
 [tabular](https://lataix-sebastien.developpez.com/tutoriels/latex/les-tableaux-sous-latex/), ou utiliser simplement l'assistant de Texstudio.
+- Pour personnaliser les tableaux ou faire des tableaux complexes, voir par exemple le package `tabularray`, qui permet de bien séparer fond et forme du tableau.
 
 
 - **nb** Il existe un package `longtable` permettant de faire des tableaux allant sur plusieurs pages et pouvant recevoir des notes de bas de page (`\footnote`).
