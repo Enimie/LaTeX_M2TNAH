@@ -1,16 +1,16 @@
-\documentclass[12pt]{book}
+\documentclass[12pt]{article}
 \usepackage{fontspec}
 \usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
 
-%%% attention: problème avec polyglossia dans la texlive 2023
-\usepackage[french]{babel}%on peut préciser d'autres langues. La nouvelle version de polyglossia pose probleme avec le style de l'EnC
 
 
 
 %\usepackage[citestyle=verbose-ibid]{biblatex}
 %\usepackage[style=enc,sorting=nyt,maxbibnames=10]{biblatex}%charger le style de l'EnC (téléchargeable ici https://ctan.org/pkg/biblatex-enc)
 
-%\addbibresource{}%Mettre le chemin de sa bibliographie (fichier .bib)
+\addbibresource{}%Mettre le chemin de sa bibliographie (fichier .bib)
 
 
 \usepackage{csquotes}%nécessaire pour utiliser le style bibliographique, qui utilise enquote
@@ -22,7 +22,7 @@
 \begin{document}
 	%ajouter des références bibliographique: \cite{}, \footcite{}
 	%tester les prénotes et postnotes
-
+\cite{bischoff2017}
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
 Ut purus elit, vestibulumut, placerat ac, adipiscing vitae, felis. 
 Curabitur dictumgravida mauris. Namarcu libero,  consectetuer id, vulputate a, magna.
