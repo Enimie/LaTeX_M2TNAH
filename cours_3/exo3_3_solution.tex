@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+
+\usepackage{csquotes}
+\usepackage{xargs}
+\usepackage{etoolbox}
+
+\usepackage{hyperref}
+
+%commande \auteur: 2 argument, le premier est optionnel. #1: le prénom, #2:le nom.
+%\ifstrempty (package etoolboc) permet de tester si un argument est vide ou nom
+\newcommandx{\auteur}[2][1]{\ifstrempty{#1}{}{#1 }\textsc{#2}}
+
+%nouvel environnement avec nom de l'auteur (#1) isà la fin 
+\newsavebox{\auteurcit} %nouvelle boite avec nom de l'auteur
+\newenvironment{extrait}[1]%
+% % à l'ouverture de l'environnement: on ouvre un environnement quotation er on sauve dans la boite\auteurcit ce qui est mis en argument
+{\begin{quotation}%
+		\savebox{\auteurcit}{#1}}%
+% à la fermeture de l'environnement: on met le contenu de la boite dans l'environnement flushright puis on ferme l'environnement quotation
+{\par\begin{flushright}
+			\usebox{\auteurcit
+\end{flushright}}\end{quotation}}
+
+%environnement similaire mais avec deux arguments, un pour l'auteur (#1) et un pour le titre (#2)
+\newsavebox{\titrecit}
+\newenvironment{Extrait}[2]{\begin{quotation}
+		\savebox{\titrecit}{#1, \emph{#2}}}%
+	{\par\begin{flushright}
+			\usebox{\titrecit
+\end{flushright}}\end{quotation}}
+
+\begin{document}
+\section*{Créer ses commandes et environnements (2)}
+
+
+
+\subsection*{Niveau intermédiaire}
+
+Test de la commande auteur: \auteur[George]{Sand} et \auteur{Colette} sont deux autrices
+
+
+
+
+
+\subsection*{Niveau difficile}
+
+Test de l'environnement extrait: 
+
+
+\begin{extrait}{Flaubert}
+	Le 15 septembre 1840, vers six heures du matin, \emph{la Ville-de-Montereau}, près de partir, fumait à gros tourbillons devant le quai Saint-Bernard.
+	
+	Des gens arrivaient hors d'haleine ; des barriques, des câbles, des corbeilles de linge gênaient la circulation ; les matelots ne répondaient à personne ; on se heurtait ; les colis montaient entre les deux tambours, et le tapage s'absorbait dans le bruissement de la vapeur, qui, s'échappant par des plaques de tôle, enveloppait tout d'une nuée blanchâtre, tandis que la cloche, à l'avant, tintait sans discontinuer. 
+\end{extrait}
+
+\subsection*{Niveau difficile +}
+
+Test de l'environnement Extrait:
+
+
+\begin{Extrait}{Flaubert}{L'Éducation sentimentale}
+	Le 15 septembre 1840, vers six heures du matin, \emph{la Ville-de-Montereau}, près de partir, fumait à gros tourbillons devant le quai Saint-Bernard.
+	
+	Des gens arrivaient hors d'haleine ; des barriques, des câbles, des corbeilles de linge gênaient la circulation ; les matelots ne répondaient à personne ; on se heurtait ; les colis montaient entre les deux tambours, et le tapage s'absorbait dans le bruissement de la vapeur, qui, s'échappant par des plaques de tôle, enveloppait tout d'une nuée blanchâtre, tandis que la cloche, à l'avant, tintait sans discontinuer. 
+\end{Extrait}
+
+
+
+
+\end{document}
