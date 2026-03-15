@@ -34,18 +34,6 @@ corps du texte
 \end{document}
 ```
 
-**Attention**
-- La dernière version du package `polyglossia` pose des problèmes avec le style bibliographique de l'ÉnC. Charger à sa place `babel`: remplacer les lignes
-
-```latex
-\usepackage{polyglossia} %package pour gérer les langues
-\setmainlanguage{french}
-```
-par: 
-```latex
-\usepackage[french]{babel}
-```
-
 
 
 - Quelques classes possibles: `article book beamer memoir`
@@ -486,9 +474,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 	+ **nb**: pour en apprendre plus sur l'arborescence d'une distribution TeX et ce que signifie `texmf local`, voir: [Guide pratique de Tex Live 2023](https://www.tug.org/texlive/doc/texlive-fr/texlive-fr.pdf) p.7, ou Daniel Flipo, [Admninistration d'une installation TeX](http://daniel.flipo.free.fr/doc/tex-admin/TeX-admin.pdf)
 	+ On le passe ensuite en option à `biblatex`: `\usepackage[style=enc]{biblatex}`
 
-**Attention** La dernière version de polyglossia provoque des erreurs de compilation avec ce style. Deux possibilités:
-- télécharger et utiliser localement la version antérieure de polyglossia en attendant que ce problème soit résolu
-- utiliser le package `babel` à la place de `polyglossia` (voir dans la définition du préambule)
+
 
 ----
 
@@ -502,7 +488,7 @@ Pour plus de précisions, voir le manuel p.74 sq
 
 - l'appel du package `biblatex-anonymous` doit se faire après l'appel du package `biblatex`
 
-**Attention** biblatex-anonymous ne fonctionne pas avec babel mais simplement avec polyglossia.
+**Attention** biblatex-anonymous ne fonctionne pas avec babel (autre package de gestion des langues) mais seulement avec polyglossia.
 
 
 ## Imprimer sa bibliographie
@@ -834,7 +820,7 @@ Texte de gauche
 %(exception à la règle)
 \makeglossaries
 ```
-- Définir les entrées de glossaire dans le préambule ou dans un fichier à part, avec la commande `\newglossaryentry{#1}{#2}` où `#1` = la clef de l'entrée, et  `#2` contient le mot et sa définition.  Exemples:
+- Définir les entrées de glossaire dans le préambule ou dans un fichier à part, avec la commande `\newglossaryentry{#1}{#2}` où `#1` = la clef de l'entrée, et  `#2` contient le mot et sa définition.  Exemples:
 
 ```latex
 \newglossaryentry{ex}{%
